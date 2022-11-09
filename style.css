@@ -69,7 +69,7 @@ a {
 
 .animation {
     width: 100%;
-    height: 560px;
+    height: calc(100vh - 60px);
     background-color: #0067A3;
 }
 
