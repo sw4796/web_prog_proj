@@ -74,9 +74,42 @@ a {
 }
 
 main {
-    height: 900px;
+    display: flex;
+    height: 100vh;
     padding-bottom: 110px;
     background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: 
+    'QnA calender'
+    'info calender';
+
+    width: 60%;
+    padding: 10px;
+    height: 50vh;
+    background-color: #6BBAE8;
+}
+
+.QnA{
+    grid-area: QnA;
+    background-color: #0067A3;
+}
+
+.info{
+    grid-area: info;
+    background-color: #0067A3;
+}
+
+.calender{
+    grid-area: calender;
+    background-color: #0067A3;
 }
 
 footer {
@@ -85,4 +118,5 @@ footer {
     bottom: 0px;
     position: absolute;
     background-color: #0067A3;
+    border-top: 1px solid black;
 }
