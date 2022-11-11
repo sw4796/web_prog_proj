@@ -1,0 +1,122 @@
+html {
+    margin: 0;
+    padding: 0;
+    min-width: 680px;
+}
+
+body {
+    margin: 0;
+}
+
+#wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6BBAE8;
+    padding: 0px 12px;
+    position: sticky;
+    top: 0px;
+    height: 60px;
+}
+
+.navbar_logo {
+    font-size: 24px;
+}
+
+.navbar_menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.navbar_menu li {
+    padding: 8px 12px;
+}
+
+.navbar_menu li:hover {
+    background-color: #C6E6F9;
+    border-radius: 4px;
+}
+
+.navbar_sign {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+
+}
+
+.navbar_sign li {
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+.navbar_sign li:hover {
+    background-color: #C6E6F9;
+    border-radius: 4px;
+}
+
+.animation {
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: #0067A3;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+    padding-bottom: 110px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: 
+    'QnA calender'
+    'info calender';
+
+    width: 60%;
+    padding: 10px;
+    height: 50vh;
+    background-color: #6BBAE8;
+}
+
+.QnA{
+    grid-area: QnA;
+    background-color: #0067A3;
+}
+
+.info{
+    grid-area: info;
+    background-color: #0067A3;
+}
+
+.calender{
+    grid-area: calender;
+    background-color: #0067A3;
+}
+
+footer {
+    width: 100%;
+    height: 110px;
+    bottom: 0px;
+    position: absolute;
+    background-color: #0067A3;
+    border-top: 1px solid black;
+}
