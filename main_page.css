@@ -19,7 +19,6 @@ a {
     color: black;
 }
 
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -42,27 +41,50 @@ a {
 }
 
 .navbar_menu li {
-    padding: 8px 12px;
+    position: relative;
+    width: auto;
+    line-height: 37.6px;
 }
 
-.navbar_menu li:hover {
+.navbar_menu li a {
+    padding: 8px 24px;
+}
+
+.navbar_menu li a:hover {
     background-color: #C6E6F9;
     border-radius: 4px;
+}
+
+.navbar_menu > li > ul{
+    display: none;
+    padding-left: 0;
+    position: absolute;
+    list-style: none;
+    background-color:#6BBAE8;
+    top: 100%;
+    left:0;
+}
+
+.navbar_menu > li > ul a{
+    padding: 8px 16px;
+}
+
+.navbar_menu li:hover > ul{
+    display: inline-block;
 }
 
 .navbar_sign {
     list-style: none;
     display: flex;
     padding-left: 0;
-
 }
 
-.navbar_sign li {
+.navbar_sign li a{
     padding: 8px 12px;
     font-size: 12px;
 }
 
-.navbar_sign li:hover {
+.navbar_sign li a:hover {
     background-color: #C6E6F9;
     border-radius: 4px;
 }
@@ -85,7 +107,7 @@ main {
 .container{
     display: grid;
     grid-template-columns: 3fr 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 200px 200px;
     grid-gap: 1rem;
     grid-template-areas: 
     'QnA calender'
@@ -93,23 +115,70 @@ main {
 
     width: 60%;
     padding: 10px;
-    height: 50vh;
-    background-color: #6BBAE8;
+    height: calc(400px + 1rem);
+}
+
+.container h2{
+    font-size: 20px;
+    margin: 5px 10px;
+    display: inline-block;
+}
+
+.container .more{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.QnA > div, .info > div{
+    display: block;
+    background-color: #C6E6F9;
+    width: calc(100% -20px);
+    height: 20%;
+    margin: 10px;
 }
 
 .QnA{
     grid-area: QnA;
-    background-color: #0067A3;
+    background-color: #6BBAE8;
+    position: relative;
+    border-radius: 4px;
 }
 
 .info{
     grid-area: info;
-    background-color: #0067A3;
+    background-color: #6BBAE8;
+    position: relative;
+    border-radius: 4px;
 }
 
 .calender{
     grid-area: calender;
-    background-color: #0067A3;
+    background-color: #6BBAE8;
+    position: relative;
+    border-radius: 4px;
+}
+
+#mini_calender{
+    display: block;
+    background-color: #C6E6F9;
+    width: calc(100% -20px);
+    height: calc(70% - 10px);
+    margin: 10px;
+    margin-bottom: 10px;
+}
+
+#this_week{
+    display: block;
+    background-color: #C6E6F9;
+    width: calc(100% -20px);
+    height: calc(30% - 10px);
+    border-top: 2px white solid;
+    border-radius: 0 0 4px 4px;
+}
+
+#this_week > h5{
+    margin: 0 0;
 }
 
 footer {
