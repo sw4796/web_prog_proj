@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <link rel="stylesheet" href="calender_page.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="main.html">JAVAS로고</a>
+            </div>
+            <ul class="navbar_menu">
+                <li><a href="">소개</a></li>
+                <li><a href="">스케줄</a></li>
+                <li>
+                    <a href="">커뮤니티</a>
+                    <ul>
+                        <li><a href="">질문게시판</a></li>
+                        <li><a href="">정보게시판</a></li>
+                    </ul>
+                </li>
+                <li><a href="ranking.html">랭킹</a></li>
+            </ul>
+            <ul class="navbar_sign">
+                <li><a href="login.html">로그인</a></li>
+                <li><a href="signup.html">회원가입</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class='rap'>
+                <div class="header">
+                   <div class="btn prevDay"></div>
+                  <h2 class='dateTitle'></h2>
+                  <div class="btn nextDay"></div>
+                </div>
+                
+                <div class="grid dateHead">
+                  <div>일</div>
+                  <div>월</div>
+                  <div>화</div>
+                  <div>수</div>
+                  <div>목</div>
+                  <div>금</div>
+                  <div>토</div>
+                </div>
+            
+                <div class="grid dateBoard"></div>
+            </div>
+            <div class="modal hidden">
+                <div class="modal_overlay"></div>
+                <div class="modal_content">
+                    <form action="" method="post">
+                        <h3>modal창</h3>
+                        <p>활동 시간:</p>
+                        <input type="time" value="11:30"><br>
+                        <p>활동 장소:</p>
+                        <input type="text" name="location" class="input_form" placeholder="📍 활동 장소를 입력해주세요"><br>
+                        <p>설명:</p>
+                        <textarea name="comment" class="input_form" placeholder="📜 설명을 입력해주세요."></textarea>
+                        <button>X</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>천일이CU가는중</p>
+            <p>이시우: swlee4796@naver.com</p>
+            <p>강은중: imgoing02@naver.com</p>
+            <p>김천일: qndldhd1@naver.com</p>
+        </footer>
+    </div>
+    <script type="text/javascript" src="calender_page.js"></script>
+</body>
+
+</html>
