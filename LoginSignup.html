@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="LoginSignup_page.css">
+    <script src="LoginSignup.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      
+      <nav class="navbar">
+          <div class="navbar_logo">
+              <a href="main.html">JAVAS로고</a>
+          </div>
+          <ul class="navbar_menu">
+              <li><a href="">소개</a></li>
+              <li><a href="">스케줄</a></li>
+              <li><a href="">정보게시판</a></li>
+              <li><a href="">질문게시판</a></li>
+              <li><a href="">랭킹</a></li>
+          </ul>
+          <ul class="navbar_sign">
+              <li><a href="">로그인</a></li>
+              <li><a href="">회원가입</a></li>
+          </ul>
+      </nav>
+      <main>
+          <div class="container" id="container">
+            <div class="form-container sign-up-container">                
+                <form class="signup_form" action="LoginSignup.html" method="post" >
+                    <h1>Sign Up</h1><br>
+                    <input type="text" placeholder="이름을 입력해주세요"/>
+                    <input type="id" placeholder="아이디를 입력해주세요"/>
+                    <input type="password" placeholder="비밀번호를 입력해주세요"/>
+                    <input type="password" placeholder="비밀번호를 다시 입력해주세요"/>
+                    <select id="questions">
+                        <option value="Q1">졸업한 초등학교 이름은?</option>
+                        <option value="Q2">기억나는 담임선생님 이름은?</option>
+                        <option value="Q3">어렸을 때 자랐던 동네 이름은?</option>
+                    </select>
+                    <input type="text" placeholder="질문에 대한 답을 입력해주세요"/>
+                    <input type="submit" value="회원가입"/>
+                  </form>
+
+            </div>
+
+            <div class="form-container sign-in-container">               
+                <form class="login_form" action="main.html" method="post" >
+                    <h1>Log In</h1><br>
+                    <input type="id" placeholder="ID"/>
+                    <input type="password" placeholder="PW"/><br>
+                    <div class="login_option">
+                      <span><input type="checkbox"/>로그인 유지</span>
+                      <span><a href="">아이디/비밀번호 찾기</a></span>
+                    </div>
+                    <br><input type="submit" value="로그인"/>
+                  </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <button class="ghost" id="signIn">Log In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </main>
+      <footer>
+      </footer>
+  </div>
+  </body>
+</html>
