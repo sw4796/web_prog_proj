@@ -52,17 +52,85 @@
             </div>
             <div class="modal hidden">
                 <div class="modal_overlay"></div>
-                <div class="modal_content">
-                    <form action="" method="post">
-                        <h3>modal창</h3>
-                        <p>활동 시간:</p>
-                        <input type="time" value="11:30"><br>
-                        <p>활동 장소:</p>
-                        <input type="text" name="location" class="input_form" placeholder="📍 활동 장소를 입력해주세요"><br>
-                        <p>설명:</p>
-                        <textarea name="comment" class="input_form" placeholder="📜 설명을 입력해주세요."></textarea>
-                        <button>X</button>
+                <div class="modal_register hidden">
+                    <h3>활동 등록</h3>
+                    <form action="" method="">
+                        <div>
+                            <p>활동 날짜:</p>
+                            <input type="text" id="date" name="date" value="" readonly>
+                        </div>
+                        <div>
+                            <p>활동 시간:</p>
+                            <input type="time" name="time" value="11:30">
+                        </div>
+                        <div>
+                            <p>활동 장소:</p>
+                            <input type="text" name="location" class="input_form" placeholder="📍 활동 장소를 입력해주세요">
+                        </div>
+                        <div>
+                            <p>모집 인원:</p>
+                            <input type="number" name="number" min="1" max="10" class="input_form" placeholder="🙋‍♂️ 활동 인원을 입력해주세요">
+                        </div>
+                        <div>
+                            <p>설명:</p>
+                            <textarea name="description" class="input_form description" placeholder="📜 설명을 입력해주세요."></textarea>
+                        </div>
+                        <div class="btn-container"><input type="submit" value="등록하기"></div>
                     </form>
+                    <button id="close"></button>
+                    <img src="arrow.png" id="back">
+                </div>
+                <div class="modal_list">
+                    <div class="modal_list_header">
+                        <h3>활동 list</h3>
+                    </div>
+                    <ul class="activity_list">
+                        <li class="activity" onclick="open_activity_info(this)">
+                            <div class="activity_summary">
+                                <p class="activity_time">11:00</p>
+                                <div class="activity_title">
+                                    <h3 class="activity_location">클라이밍파크 종로점</h3>
+                                    <p class="writer">주최자:이시우</p>
+                                </div>
+                                <p class="activity_people">7/10</p>
+                            </div>
+                            <div class="activity_info hidden"></div>
+                        </li>
+                        <li class="activity" onclick="open_activity_info(this)">
+                            <div class="activity_summary">
+                                <p class="activity_time">11:00</p>
+                                <div class="activity_title">
+                                    <h3 class="activity_location">클라이밍파크 종로점</h3>
+                                    <p class="writer">주최자:이시우</p>
+                                </div>
+                                <p class="activity_people">7/10</p>
+                            </div>
+                            <div class="activity_info hidden"></div>
+                        </li>
+                        <li class="activity" onclick="open_activity_info(this)">
+                            <div class="activity_summary">
+                                <p class="activity_time">11:00</p>
+                                <div class="activity_title">
+                                    <h3 class="activity_location">클라이밍파크 종로점</h3>
+                                    <p class="writer">주최자:이시우</p>
+                                </div>
+                                <p class="activity_people">7/10</p>
+                            </div>
+                            <div class="activity_info hidden"></div>
+                        </li>
+                        <li class="activity" onclick="open_activity_info(this)">
+                            <div class="activity_summary">
+                                <p class="activity_time">11:00</p>
+                                <div class="activity_title">
+                                    <h3 class="activity_location">클라이밍파크 종로점</h3>
+                                    <p class="writer">주최자:이시우</p>
+                                </div>
+                                <p class="activity_people">7/10</p>
+                            </div>
+                            <div class="activity_info hidden"></div>
+                        </li>
+                    </ul>
+                    <div class="btn-container"><button class="register_button" onclick="openModal_register()">추가하기</button></div>
                 </div>
             </div>
         </main>

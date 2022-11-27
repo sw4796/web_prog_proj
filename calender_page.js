@@ -7,6 +7,12 @@ Number.prototype.pad = function() {
   return this > 9 ? this : '0' + this;
 }
 
+function set_main_size(){
+  const main = document.querySelector("main");
+  const calendar_size = document.querySelector(".rap").offsetHeight;
+  main.style.height = `calc(${calendar_size}px + 110px + 60px + 200px`;
+}
+
 // 달력 생성
 const makeCalendar = (date) => {
   // 현재의 년도와 월 받아오기
@@ -47,6 +53,7 @@ const makeCalendar = (date) => {
   
   document.querySelector(`.dateBoard`).innerHTML = htmlDummy;
   document.querySelector(`.dateTitle`).innerText = `${currentYear}년 ${currentMonth}월`;
+  set_main_size();
 }
 
 makeCalendar(today);
@@ -64,6 +71,9 @@ makeCalendar(new Date(date.setMonth(date.getMonth() + 1)));
 const modal = document.querySelector(".modal");
 const overlay = modal.querySelector(".modal_overlay");
 const clostBtn = modal.querySelector("button");
+const modal_register = modal.querySelector(".modal_register");
+const modal_list = modal.querySelector(".modal_list");
+const back_list_button = modal.querySelector("#back");
 
 function openModal(){
   modal.classList.remove("hidden");
@@ -71,10 +81,24 @@ function openModal(){
 
 function closeModal(){
   modal.classList.add("hidden");
+  modal_list.classList.remove("hidden");
+  modal_register.classList.add("hidden");
 } 
+
+function back_Modal_list(){
+  modal_list.classList.remove("hidden");
+  modal_register.classList.add("hidden");
+}
+
+function openModal_register(){
+  modal_register.classList.remove("hidden");
+  modal_list.classList.add("hidden");
+  document.querySelector("form").reset();
+}
 
 overlay.addEventListener("click",closeModal);
 clostBtn.addEventListener("click",closeModal);
+back_list_button.addEventListener("click",back_Modal_list);
 
 function fn_selectDate(click_date){
   var year = date.getFullYear();
@@ -91,7 +115,15 @@ function fn_selectDate(click_date){
     date_txt += "" + click_date;
   }
   
-  modal_content = document.querySelector(`.modal_content`);
-  modal_content.querySelector("h3").textContent = date_txt + " 활동 list";
+  modal_register_date = document.querySelector("#date");
+  modal_register_date.setAttribute('value', date_txt);
+  modal_register_date.setAttribute('class', 'input_form');
+
   openModal();
+
+}
+
+function open_activity_info(activity){
+  console.log(activity.lastChild.previousSibling);
+  activity.lastChild.previousSibling.classList.toggle("hidden");
 }
