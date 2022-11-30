@@ -2,11 +2,6 @@
 const today = new Date(); //오늘 date(고정)
 const date = new Date(); //달력 만드는데 
 
-// pad method
-Number.prototype.pad = function() {
-  return this > 9 ? this : '0' + this;
-}
-
 function set_main_size(){
   const main = document.querySelector("main");
   const calendar_size = document.querySelector(".rap").offsetHeight;
@@ -68,6 +63,7 @@ document.querySelector(`.nextDay`).onclick = () => {
 makeCalendar(new Date(date.setMonth(date.getMonth() + 1)));
 }
 
+//html 지정해놓기
 const modal = document.querySelector(".modal");
 const overlay = modal.querySelector(".modal_overlay");
 const clostBtn = modal.querySelector("button");
@@ -76,37 +72,45 @@ const modal_list = modal.querySelector(".modal_list");
 const back_list_button = modal.querySelector("#back");
 const modal_list_header = modal.querySelector(".modal_list_header");
 
-
+//modal 열기
 function openModal(){
   modal.classList.remove("hidden");
 } 
 
+//modal 닫기
 function closeModal(){
   modal.classList.add("hidden");
   modal_list.classList.remove("hidden");
   modal_register.classList.add("hidden");
 } 
 
+//등록 modal 닫고 list modal 열기
 function back_Modal_list(){
   modal_list.classList.remove("hidden");
   modal_register.classList.add("hidden");
 }
 
+//등록하기 버튼 눌렀을 때
 function openModal_register(){
   modal_register.classList.remove("hidden");
   modal_list.classList.add("hidden");
   document.querySelector("form").reset();
 }
 
+//배경 누르면 modal 닫기
 overlay.addEventListener("click",closeModal);
+//X표시 누르면 modal 닫기
 clostBtn.addEventListener("click",closeModal);
+//뒤로 가기 버튼 눌렀을 때
 back_list_button.addEventListener("click",back_Modal_list);
 
+//날짜 클릭했을 때 함수
 function fn_selectDate(click_date){
+  //날짜 가져오기
   var year = date.getFullYear();
   var month = date.getMonth() + 1;
   var date_txt = "";
-  if(date.getMonth + 1 < 10){
+  if(date.getMonth() + 1 < 10){
     month = "0" + (date.getMonth() + 1);
   }
   date_txt = year+"-"+month+"-";
@@ -117,32 +121,38 @@ function fn_selectDate(click_date){
     date_txt += "" + click_date;
   }
   
+  //등록 modal 날짜 input value 설정
   modal_register_date = document.querySelector("#date");
   modal_register_date.setAttribute('value', date_txt);
-  modal_register_date.setAttribute('class', 'input_form');
-  modal_list_header.querySelector("h3").innerText = date_txt.substring(5,).replace("-","/") + " 활동 List";
-
-  openModal();
+  //list modal header에 날짜 입력
+  modal_list_header.querySelector("h3").innerText = date_txt.substring(5).replace("-","/") + " 활동 List";
+  
+  $.ajax({
+    type: 'post',
+    url: "getlist_activity.jsp",
+    data: {
+      date: date_txt
+    },
+    dataType: 'html',
+    success: function(data){
+      $("#activity_list").html(data);
+      openModal();
+    },
+    error: function(e){
+      alert("ajax_error");
+    }
+  });
 
 }
 
 function open_activity_info(activity){
-  console.log(activity.lastChild.previousSibling);
+  console.log(activity.childNodes);
   activity.lastChild.previousSibling.classList.toggle("hidden");
 }
 
-$.ajax({
-  type: 'post',
-  url: "get_calender",
-  data: {
+let json_data = {
     month: date.getMonth() + 1 + "",
     year: date.getFullYear() + ""
-  },
-  dataType: 'json',
-  success: function(data){
-    console.log(data);
-  },
-  error: function(){
-    console.log("ajax_error");
-  }
-});
+  };
+
+

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>main</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>;
     <link rel="stylesheet" href="calender_page.css">
@@ -55,10 +55,10 @@
                 <div class="modal_overlay"></div>
                 <div class="modal_register hidden">
                     <h3>활동 등록</h3>
-                    <form action="" method="">
+                    <form action="putinfo_calender" method="post">
                         <div>
                             <p>활동 날짜:</p>
-                            <input type="text" id="date" name="date" value="" readonly>
+                            <input type="text" id="date" class="input_form" name="date" value="" readonly>
                         </div>
                         <div>
                             <p>활동 시간:</p>
@@ -85,8 +85,8 @@
                     <div class="modal_list_header">
                         <h3>활동 list</h3>
                     </div>
-                    <ul class="activity_list">
-                        <li class="activity" onclick="open_activity_info(this)">
+                    <ul id="activity_list">
+                        <!-- <li class="activity" onclick="open_activity_info(this)">
                             <div class="activity_summary">
                                 <p class="activity_time">11:00</p>
                                 <div class="activity_title">
@@ -147,7 +147,7 @@
                                 <p class="activity_people">7/10</p>
                             </div>
                             <div class="activity_info hidden"></div>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="btn-container"><button class="register_button" onclick="openModal_register()">추가하기</button></div>
                 </div>

@@ -243,7 +243,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   margin: 0;
 }
 
-.activity_list{
+#activity_list{
   background-color: #fff;
   border-radius: 0 0 12px 12px;
   padding: 15px 15px 0px;
@@ -254,17 +254,17 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   grid-auto-rows: minmax(min-content, max-content);
 }
 
-.activity_list::-webkit-scrollbar {
+#activity_list::-webkit-scrollbar {
   width: 8px;  /* 스크롤바의 너비 */
 }
 
-.activity_list::-webkit-scrollbar-thumb {
+#activity_list::-webkit-scrollbar-thumb {
   height: 30%; /* 스크롤바의 길이 */
   background: #217af4; /* 스크롤바의 색상 */
   border-radius: 10px;
 }
 
-.activity_list::-webkit-scrollbar-track {
+#activity_list::-webkit-scrollbar-track {
   background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
 }
 
