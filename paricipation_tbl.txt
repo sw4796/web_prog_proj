@@ -1,0 +1,8 @@
+create table participation(
+user_id varchar(20) not null,
+act_id int unsigned not null,
+timestamp timestamp not null default current_timestamp,
+primary key (user_id,act_id),
+foreign key (user_id) references member (user_id),
+foreign key (act_id) references activity (act_id)
+);

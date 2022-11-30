@@ -74,6 +74,8 @@ const clostBtn = modal.querySelector("button");
 const modal_register = modal.querySelector(".modal_register");
 const modal_list = modal.querySelector(".modal_list");
 const back_list_button = modal.querySelector("#back");
+const modal_list_header = modal.querySelector(".modal_list_header");
+
 
 function openModal(){
   modal.classList.remove("hidden");
@@ -118,6 +120,7 @@ function fn_selectDate(click_date){
   modal_register_date = document.querySelector("#date");
   modal_register_date.setAttribute('value', date_txt);
   modal_register_date.setAttribute('class', 'input_form');
+  modal_list_header.querySelector("h3").innerText = date_txt.substring(5,).replace("-","/") + " 활동 List";
 
   openModal();
 
@@ -127,3 +130,19 @@ function open_activity_info(activity){
   console.log(activity.lastChild.previousSibling);
   activity.lastChild.previousSibling.classList.toggle("hidden");
 }
+
+$.ajax({
+  type: 'post',
+  url: "get_calender",
+  data: {
+    month: date.getMonth() + 1 + "",
+    year: date.getFullYear() + ""
+  },
+  dataType: 'json',
+  success: function(data){
+    console.log(data);
+  },
+  error: function(){
+    console.log("ajax_error");
+  }
+});
