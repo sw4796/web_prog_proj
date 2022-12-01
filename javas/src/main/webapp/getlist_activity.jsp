@@ -20,10 +20,23 @@
 			Class.forName("com.mysql.jdbc.Driver");
 			String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
 			conn = DriverManager.getConnection(jdbcurl,"root","0000");
-			stmt_list = conn.createStatement();
+			stmt_list = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+		            ResultSet.CONCUR_UPDATABLE);
 			//date와 일치하는 활동 list 추출해오기
 			String sql_list = "select * from activity where date='" + date + "'";
 			rs_list = stmt_list.executeQuery(sql_list);
+			
+			rs_list.last();
+			//아무 활동도 없는 경우
+			if(rs_list.getRow() == 0){
+				%>
+				<div class="empty_list">
+                	예정된 활동이 없습니다.<br>
+                	직접 활동을 추가해 보세요!
+                </div>
+				<%
+			}
+			rs_list.beforeFirst();
 			
 			//활동 list 순회하면서 html 생성
 			while(rs_list.next()){
@@ -34,8 +47,8 @@
 					rs_member = stmt_member.executeQuery(sql_member);
 
 				%>
-				<li class="activity" onclick="open_activity_info(this)">
-		            <div class="activity_summary">
+				<li class="activity">
+		            <div class="activity_summary" onclick="open_activity_info(this)">
 		                <p class="activity_time"><%=rs_list.getString("time").substring(0,5) %></p>
 		                <div class="activity_title">
 		                    <h3 class="activity_location"><%=rs_list.getString("location") %></h3>

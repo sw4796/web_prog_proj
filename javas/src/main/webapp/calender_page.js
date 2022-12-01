@@ -35,9 +35,9 @@ const makeCalendar = (date) => {
     //오늘인 경우
     if(date.getDate()==i && date.getFullYear() == today.getFullYear() 
       && date.getMonth()==today.getMonth()){
-        htmlDummy += `<div id="date_${i}" class="today date" onclick="fn_selectDate(${i});">${i}</div>`;
+        htmlDummy += `<div id="date_${i}" class="today date" onclick="fn_selectDate(${i});"><p>${i}</p></div>`;
       }else{
-        htmlDummy += `<div id="date_${i}" class="date" onclick="fn_selectDate(${i});">${i}</div>`;
+        htmlDummy += `<div id="date_${i}" class="date" onclick="fn_selectDate(${i});"><p>${i}</p></div>`;
       }
   }
 
@@ -53,16 +53,6 @@ const makeCalendar = (date) => {
 
 makeCalendar(today);
 
-// 이전달 이동
-document.querySelector(`.prevDay`).onclick = () => {
-makeCalendar(new Date(date.setMonth(date.getMonth() - 1)));
-}
-
-// 다음달 이동
-document.querySelector(`.nextDay`).onclick = () => {
-makeCalendar(new Date(date.setMonth(date.getMonth() + 1)));
-}
-
 //html 지정해놓기
 const modal = document.querySelector(".modal");
 const overlay = modal.querySelector(".modal_overlay");
@@ -71,23 +61,57 @@ const modal_register = modal.querySelector(".modal_register");
 const modal_list = modal.querySelector(".modal_list");
 const back_list_button = modal.querySelector("#back");
 const modal_list_header = modal.querySelector(".modal_list_header");
+const calender = document.querySelector(".rap");
+
+// 이전달 이동
+document.querySelector(`.prevDay`).onclick = () => {
+makeCalendar(new Date(date.setMonth(date.getMonth() - 1)));
+calender.classList.add("left");
+setTimeout(function(){
+  calender.classList.remove("left");
+},500);
+}
+
+// 다음달 이동
+document.querySelector(`.nextDay`).onclick = () => {
+makeCalendar(new Date(date.setMonth(date.getMonth() + 1)));
+calender.classList.add("right");
+setTimeout(function(){
+  calender.classList.remove("right");
+},500);
+}
 
 //modal 열기
 function openModal(){
+  modal_list.classList.add("on");
   modal.classList.remove("hidden");
-} 
+  setTimeout(function(){
+    modal_list.classList.remove("on");
+  },500);
+}
 
 //modal 닫기
 function closeModal(){
-  modal.classList.add("hidden");
-  modal_list.classList.remove("hidden");
-  modal_register.classList.add("hidden");
-} 
+  modal_list.classList.remove("on");
+  modal_list.classList.add("off");
+  modal_register.classList.add("off");
+  setTimeout(function(){
+    modal_list.classList.remove("off");
+    modal_register.classList.remove("off");
+    modal.classList.add("hidden");
+    modal_list.classList.remove("hidden");
+    modal_register.classList.add("hidden");
+  },300);
+}
 
 //등록 modal 닫고 list modal 열기
 function back_Modal_list(){
-  modal_list.classList.remove("hidden");
   modal_register.classList.add("hidden");
+  modal_list.classList.add("left");
+  modal_list.classList.remove("hidden");
+  setTimeout(function(){
+    modal_list.classList.remove("left");
+  },500)
 }
 
 //등록하기 버튼 눌렀을 때
@@ -145,14 +169,13 @@ function fn_selectDate(click_date){
 
 }
 
+let slideToggle=true;
 function open_activity_info(activity){
-  console.log(activity.childNodes);
-  activity.lastChild.previousSibling.classList.toggle("hidden");
-}
-
-let json_data = {
-    month: date.getMonth() + 1 + "",
-    year: date.getFullYear() + ""
-  };
-
-
+  info = activity.nextSibling.nextSibling;
+  if(slideToggle){
+    $(info).stop().slideDown(500);
+  }else{
+    $(info).stop().slideUp(500);
+  }
+  slideToggle=!slideToggle;
+};
