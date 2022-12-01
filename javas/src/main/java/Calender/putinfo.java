@@ -72,7 +72,7 @@ public class putinfo extends HttpServlet {
 		String date = request.getParameter("date");
 		String number = request.getParameter("number");
 		String description = request.getParameter("description");
-		String writer = "test";
+		String writer = "sw4796";
 
 		String sql_insert = "insert into activity values(" + id + ",'" + location + "','" + time + "','" + date + "','"
 				+ number + "','" + description + "','" + writer + "')";
