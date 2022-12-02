@@ -2,6 +2,7 @@ package Calender;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.*;
 import java.util.Iterator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -37,11 +38,21 @@ public class getinfo extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
-		String month = request.getParameter("month");
-		String year = request.getParameter("year");
-		
-		System.out.println("month => " + month);
-		System.out.println("year => " + year);
+		Connection conn = null;
+		Statement stmt_list = null;
+		Statement stmt_member = null;
+		ResultSet rs_list = null;
+		ResultSet rs_member= null;
+	
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
+			conn = DriverManager.getConnection(jdbcurl,"root","0000");
+			stmt_list = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+		            ResultSet.CONCUR_UPDATABLE);
+			//date와 일치하는 활동 list 추출해오기
+			String sql_list = "select * from activity where date='" + date + "'";
+			rs_list = stmt_list.executeQuery(sql_list);
 		
 		JSONObject json = new JSONObject();
 		json.put("date", "2022-11-17");

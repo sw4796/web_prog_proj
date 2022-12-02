@@ -37,7 +37,10 @@ const makeCalendar = (date) => {
       && date.getMonth()==today.getMonth()){
         htmlDummy += `<div id="date_${i}" class="today date" onclick="fn_selectDate(${i});"><p>${i}</p></div>`;
       }else{
-        htmlDummy += `<div id="date_${i}" class="date" onclick="fn_selectDate(${i});"><p>${i}</p></div>`;
+        htmlDummy += `<div id="date_${i}" class="date" onclick="fn_selectDate(${i});">
+        <p>${i}</p>
+          <div class="calender_mark">클라이밍 파크 종로점 가나다라</div>
+        </div>`;
       }
   }
 

@@ -631,11 +631,11 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   grid-gap: 5px;
 }
 
-.grid div {
+.grid > div {
   font-size: .9rem;
 }
 
-.dateBoard div {
+.dateBoard > div {
   font-weight: bold;
   min-height: 6rem;
   border-radius: 5px;
@@ -649,10 +649,11 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 .date{
   color: #222;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .date > P{
-  padding: .6rem 0 0 .8rem;
+  padding: .6rem 0 .2rem .8rem;
 }
 
 .date:hover{
@@ -662,6 +663,27 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 .today{
   color: red;
 }
+
+/* 달력에 일정 마크 */
+.mark_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.calender_mark{
+  font-size: xx-small;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  background-color: #217af4;
+  color: white;
+  border-radius: 2px;
+}
+/* ---------------- */
 
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
