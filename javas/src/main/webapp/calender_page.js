@@ -8,6 +8,62 @@ function set_main_size(){
   main.style.height = `calc(${calendar_size}px + 110px + 60px + 200px`;
 }
 
+function mk_calender_mark(){
+  let year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let date_txt = year + "-" + month;
+  $.ajax({
+    type: 'post',
+    url: "getinfo_calender",
+    data: {
+      date: date_txt
+    },
+    dataType: 'json',
+    success: function(data){
+      //json 배열 가져오기
+      let data_array = data["data"];
+      //배열 돌면서 date, location값 추출하기
+      for (let i = 0; i < data_array.length; i++){
+        let date = data_array[i]["date"];
+        let location = data_array[i]["location"];
+        put_mark_calender(date,location);
+      }
+    },
+    error: function(e){
+      alert("get_calender_mark: ajax_error");
+    }
+  });
+}
+
+function put_mark_calender(date, location){
+  //date에서 한자리 수 한자리로 만들기
+  let date_cut = date.slice(-2);
+  if(date_cut[0] === "0"){ // 첫자리가 0이면 자르기
+    date_cut = date_cut.slice(-1);
+  }
+
+  //날짜에 맞는 date 선택 
+  let mark_date = document.querySelector(`#date_${date_cut}`);
+  
+  //4개이면 더보기 버튼 추가
+  if(mark_date.childElementCount == 1+3){
+    let more_icon = document.createElement("img");
+    more_icon.src = "more.png";
+    more_icon.classList.add("more_icon");
+    mark_date.appendChild(more_icon);
+    return;
+  //mark가 다 찼으면 끝내기(최대 3개)
+  }else if(mark_date.childElementCount > 1+3)
+    return;
+
+  //mark 만들기
+  let mark = document.createElement("div");
+  mark.classList.add("calender_mark");
+  mark.innerText = location;
+
+  mark_date.appendChild(mark);
+}
+
 // 달력 생성
 const makeCalendar = (date) => {
   // 현재의 년도와 월 받아오기
@@ -39,7 +95,6 @@ const makeCalendar = (date) => {
       }else{
         htmlDummy += `<div id="date_${i}" class="date" onclick="fn_selectDate(${i});">
         <p>${i}</p>
-          <div class="calender_mark">클라이밍 파크 종로점 가나다라</div>
         </div>`;
       }
   }
@@ -52,6 +107,7 @@ const makeCalendar = (date) => {
   document.querySelector(`.dateBoard`).innerHTML = htmlDummy;
   document.querySelector(`.dateTitle`).innerText = `${currentYear}년 ${currentMonth}월`;
   set_main_size();
+  mk_calender_mark();
 }
 
 makeCalendar(today);
@@ -172,6 +228,7 @@ function fn_selectDate(click_date){
 
 }
 
+//클릭하면 활동정보 드롭다운 함수
 let slideToggle=true;
 function open_activity_info(activity){
   info = activity.nextSibling.nextSibling;

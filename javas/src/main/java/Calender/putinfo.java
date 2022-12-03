@@ -49,45 +49,38 @@ public class putinfo extends HttpServlet {
 			//act_id에서 가장 큰값, 행 개수 추출해오기
 			String sql_maxid = "select max(act_id) as max_id, count(*) as cnt from activity";
 			rs = stmt.executeQuery(sql_maxid);
-		}
-		catch(Exception e) {
-			System.out.println("DB 연동 오류입니다. :" + e.getMessage());
-		}
 		
-		try { //max id 찾기
+			//max id 찾기
 			while(rs.next()) {
 				cnt = rs.getInt("cnt");
 				if(cnt!=0)
 					id = rs.getInt("max_id");
 			}
+
+			id++;
+			// 활동 form 값 받아오기
+			String location = request.getParameter("location");
+			String time = request.getParameter("time");
+			String date = request.getParameter("date");
+			String number = request.getParameter("number");
+			String description = request.getParameter("description");
+			String writer = "sw4796";
+	
+			String sql_insert = "insert into activity values(" + id + ",'" + location + "','" + time + "','" + date + "','"
+					+ number + "','" + description + "','" + writer + "')";
+	
+			System.out.println(sql_insert);
+			
+			 //DB에 값 insert 하기 
+			stmt.executeUpdate(sql_insert); 
+			response.sendRedirect("calender.html");
+			
+			stmt.close();
+			conn.close();
 		}
 		catch(Exception e) {
 			System.out.println("max_id: DB 연동 오류입니다. :" + e.getMessage());
 		}
-
-		id++;
-		// 활동 form 값 받아오기
-		String location = request.getParameter("location");
-		String time = request.getParameter("time");
-		String date = request.getParameter("date");
-		String number = request.getParameter("number");
-		String description = request.getParameter("description");
-		String writer = "sw4796";
-
-		String sql_insert = "insert into activity values(" + id + ",'" + location + "','" + time + "','" + date + "','"
-				+ number + "','" + description + "','" + writer + "')";
-
-		System.out.println(sql_insert);
-		
-		 //DB에 값 insert 하기 
-		try { 
-			stmt.executeUpdate(sql_insert); 
-		}
-		 catch(Exception e) { 
-		 System.out.println("insert_info: DB 연동 오류입니다. :" + e.getMessage()); 
-		 }
-		 
-		response.sendRedirect("calender.html");
 	}
 
 }

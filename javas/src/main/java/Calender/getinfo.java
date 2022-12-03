@@ -38,30 +38,51 @@ public class getinfo extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
+		String date_txt = request.getParameter("date");
+		System.out.println("date_txt= " + date_txt);
+
 		Connection conn = null;
-		Statement stmt_list = null;
-		Statement stmt_member = null;
-		ResultSet rs_list = null;
-		ResultSet rs_member= null;
+		Statement stmt = null;
+		ResultSet rs = null;
 	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
 			conn = DriverManager.getConnection(jdbcurl,"root","0000");
-			stmt_list = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 		            ResultSet.CONCUR_UPDATABLE);
-			//date와 일치하는 활동 list 추출해오기
-			String sql_list = "select * from activity where date='" + date + "'";
-			rs_list = stmt_list.executeQuery(sql_list);
+			//date와 년과 월이 일치하는 활동 list 추출해오기
+			String sql = "select location, date from activity where date_format(date, '%Y-%m') = '" + date_txt +"' order by date asc, time asc";
+			rs = stmt.executeQuery(sql);
 		
-		JSONObject json = new JSONObject();
-		json.put("date", "2022-11-17");
-		json.put("location", "클라이밍파크 종로점");
+			//날짜, 장소 json 만들기
+			JSONObject jsonObject = new JSONObject();
+			JSONArray req_array = new JSONArray();
+			while(rs.next()) {
+				JSONObject data = new JSONObject();
+				data.put("date", rs.getString("date"));
+				data.put("location", rs.getString("location"));
+				System.out.println(data);
+				req_array.add(data);
+			}
+			jsonObject.put("data", req_array);
+			// {"data" : [ {"date": date ,"loaction": location}, {"date": date ,"loaction": location}, ...]} 형태로 저장
+			
+			// json 직렬화 하기
+			String jsonstr = jsonObject.toJSONString();
+			System.out.println(jsonstr);
+			
+			//json 반환 해주기
+			PrintWriter out = response.getWriter();
+			out.print(jsonstr);
+			
+			stmt.close();
+			conn.close();
+		}
+		catch(Exception e) {
+			System.out.println("getinfo_calender: DB 연동 오류입니다. :" + e.getMessage());
+		}
 		
-		String jsonStr = json.toJSONString();
-		System.out.println(jsonStr);
-		PrintWriter out = response.getWriter();
-		out.print(jsonStr);
 	}
 
 }
