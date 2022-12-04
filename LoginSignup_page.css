@@ -97,12 +97,28 @@ input[type="id"] {
   width: 100%;
 }
 
+input[placeholder="아이디를 입력해주세요"] {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 70%;
+}
+
 input[type="text"] {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
+}
+
+#idcheck {
+  border-radius: 20px;
+  border: 1px solid #FF4B2B;
+  background-color: #FF4B2B;
+  color: #FFFFFF;
+  height: 70%;
 }
 
 select {
@@ -123,6 +139,7 @@ input[type="password"] {
   display: flex;
   flex-flow: nowrap;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -247,8 +264,35 @@ input[type="submit"] {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  /*width: 100%;*/
+}
+#signup_button {
+	border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
   /* width: 100%; */
 }
+#login_button {
+	border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  /* width: 100%; */
+}
+
 .login_form {
   background-color: #ffffff;
   display: flex;
@@ -277,7 +321,7 @@ h1 {
   text-align: center;
 }
 
-span {
+.login_option_background {
   font-size: small;
   border-radius: 20px;
   border: 1px solid #ff4b2b;
