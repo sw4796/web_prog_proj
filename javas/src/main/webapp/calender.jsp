@@ -94,7 +94,7 @@
                         </div>
                         <div class="btn-container">
                         	<%if(login){ //로그인일 때만 등록 표시%>
-                        		<input type="submit" value="등록하기">
+                        		<input type="submit" id="register_button" value="등록하기">
                         	<%} %>
                         </div>
                     </form>

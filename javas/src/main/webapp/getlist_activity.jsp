@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="java.text.SimpleDateFormat"%>
+
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -19,9 +21,18 @@
 			user_id = (String)session.getAttribute("id");
 			name = (String)session.getAttribute("name");
 		}
-
+		//javascript에서 받은 date="2002-05-18" 형태
 		String date = request.getParameter("date");
-	
+		//당일 날짜 포맷에 맞춰 생성
+		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		//비교를 위해서 포맷 맞추기
+		Date act_date = new Date(dateFormat.parse(date).getTime());
+		Date today = new Date(dateFormat.parse(todayfm).getTime());
+		//compare<0 이면 date < today 이다. -> 이미 지난 날
+		int date_compare = act_date.compareTo(today); 
+		
 		Connection conn = null;
 		Statement stmt_list = null;
 		Statement stmt_member = null;
@@ -84,7 +95,7 @@
 			                    %>
 		                    </div>
 		                    <div class="btn-container">
-		                    <%if(login){ //로그인일 때만 표시%>
+		                    <%if(login&&date_compare>=0){ //로그인을 하고 활동 시간이 끝나지 않았을 때만 표시%>
 		                    	<button class="participate_button" onclick="participate_activity(<%=user_id%>,<%=rs_list.getInt("act_id")%>,<%=rs_list.getString("name")%>)">참여하기</button>
 		                    <%} %>
 		                    </div>
