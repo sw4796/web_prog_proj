@@ -1,11 +1,12 @@
 create table activity(
-act_id int unsigned not null auto_increment,
+act_id int unsigned not null,
 location varchar(30) not null,
 time time not null,
 date date not null,
 max_member tinyint unsigned not null,
 description varchar(300) not null,
 writer varchar(20) not null,
+color varchar(7) not null default '#217af4',
 primary key (act_id),
 foreign key (writer) references member (user_id)
 );
