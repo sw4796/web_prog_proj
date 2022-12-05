@@ -228,9 +228,9 @@ function fn_selectDate(click_date){
       if(register_button != null){
         //활동 시간이 이미 지난 경우
         if(new Date(date_txt) < new Date(today_date_txt)){
-          $("#register_button").classList.add("hidden");
+          register_button.classList.add("hidden");
         }else{
-          $("#register_button").classList.remove("hidden");
+          register_button.classList.remove("hidden");
         }
       }
       openModal();
