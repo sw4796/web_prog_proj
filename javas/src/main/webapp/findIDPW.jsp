@@ -33,6 +33,7 @@
         </nav>
         <main>
         	<div class="container">
+        	<form action="getPW" method="post">
         		<h2>회원가입 시 작성한 정보를 입력해주세요.</h2>
         		<input type="text" placeholder="이메일을 입력해주세요" id="id" name="id"/>
         		<select id="questions" name="Qnum">
@@ -41,15 +42,16 @@
                 	<option value="3">어렸을 때 자랐던 동네 이름은?</option>
               	</select>
               	<input type="text" placeholder="질문에 대한 답을 입력해주세요" id="Qans" name="Qans"/><br><br>
-              	<input type="button" class="findButton" id="findButton" onclick="getPW()" value="비밀번호 찾기" />
+              	<input type="submit" class="findButton" id="findButton" value="비밀번호 찾기" />
               	<br><br><a href="LoginSignup.jsp">로그인 화면으로 돌아가기</a><br><br>
               	<span id="showPW"></span>
+             </form>
         	</div>
         </main>
         <footer>
         </footer>
     </div>
-    
+<%-- 
 <%!
 Connection conn = null;
 Statement stmt = null;
@@ -113,6 +115,6 @@ conn.close();
 			}		
 		}
 	</script>
-
+--%>  
 </body>
 </html>
