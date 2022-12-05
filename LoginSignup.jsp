@@ -117,7 +117,7 @@ conn.close();
 %>
 	<script type="text/javascript">
 	
-	//let idcheck=document.getElementById("idcheck");
+	let idcheck=document.getElementById("idcheck");
 	function idCheck()
 	{
 		let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
@@ -139,12 +139,12 @@ conn.close();
 		if(!id_list.includes(id))
 		{
 			alert("사용 가능한 이메일입니다.");
-			idcheck.class="check";
+			idcheck.className="check";
 		}
 		else
 		{
 			alert("이미 사용중인 이메일입니다.");
-			idcheck.class="uncheck";
+			idcheck.className="uncheck";
 		}
 	}
 	

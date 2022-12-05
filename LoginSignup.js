@@ -14,21 +14,21 @@ window.onload=function(){
 
 function signupCheck()
 {
-	const message2=document.getElementById("message2");
 	let id=document.getElementById("id").value;
 	let name=document.getElementById("name").value;
 	let pw1=document.getElementById("pw1").value;
 	let pw2=document.getElementById("pw2").value;
 	let Qans=document.getElementById("Qans").value;
-	let idcheck=document.getElementById("idcheck").class;
+	let idcheck=document.getElementById("idcheck").className;
+	
 	//message2.innerHTML=id+","+name+","+pw1+","+Qans+","+idcheck;
-	if((id=="")||(name=="")||(pw1=="")||(pw1!=pw2)||(Qans=="")||(idcheck=="uncheck")===true)
+	if((id!="")&&(name!="")&&(pw1!="")&&(pw1==pw2)&&(Qans!="")&&(idcheck=="check"))
 	{
-		alert("모든 정보를 입력해야 합니다.");
-	}
-	else
-	{
+		
 		document.getElementById("signup").submit();
+	}
+	else {
+		alert("모든 정보를 입력하세요.");
 	}
 }
 
