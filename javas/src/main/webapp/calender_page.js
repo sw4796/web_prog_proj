@@ -49,7 +49,7 @@ function put_mark_calender(date, location,color){
   //4개이면 더보기 버튼 추가
   if(mark_date.childElementCount == 1+3){
     let more_icon = document.createElement("img");
-    more_icon.src = "more.png";
+    more_icon.src = "image/more.png";
     more_icon.classList.add("more_icon");
     mark_date.appendChild(more_icon);
     return;
