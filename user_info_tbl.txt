@@ -1,0 +1,21 @@
+create table user_info(
+user_id varchar(40) not null,
+user_name varchar(20) not null,
+level varchar(15) DEFAULT 'white' not null,
+attendance int DEFAULT 0,
+black_clear int DEFAULT 0,
+brown_clear int DEFAULT 0,
+gray_clear int DEFAULT 0,
+purple_clear int DEFAULT 0,
+red_clear int DEFAULT 0,
+blue_clear int DEFAULT 0,
+green_clear int DEFAULT 0,
+orange_clear int DEFAULT 0,
+yellow_clear int DEFAULT 0,
+white_clear int DEFAULT 0,
+clear int DEFAULT 0,
+total_attendance int DEFAULT 0,
+total_clear int DEFAULT 0,
+primary key (user_id),
+foreign key (user_id) references member (user_id) ON UPDATE CASCADE
+);
