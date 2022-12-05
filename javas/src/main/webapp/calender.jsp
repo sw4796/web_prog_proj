@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>main</title>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>;
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="calender_page.css">
 </head>
 
