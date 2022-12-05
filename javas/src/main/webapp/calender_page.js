@@ -26,7 +26,8 @@ function mk_calender_mark(){
       for (let i = 0; i < data_array.length; i++){
         let date = data_array[i]["date"];
         let location = data_array[i]["location"];
-        put_mark_calender(date,location);
+        let color = data_array[i]["color"];
+        put_mark_calender(date,location,color);
       }
     },
     error: function(e){
@@ -35,7 +36,7 @@ function mk_calender_mark(){
   });
 }
 
-function put_mark_calender(date, location){
+function put_mark_calender(date, location,color){
   //date에서 한자리 수 한자리로 만들기
   let date_cut = date.slice(-2);
   if(date_cut[0] === "0"){ // 첫자리가 0이면 자르기
@@ -60,6 +61,7 @@ function put_mark_calender(date, location){
   let mark = document.createElement("div");
   mark.classList.add("calender_mark");
   mark.innerText = location;
+  mark.style.backgroundColor = color;
 
   mark_date.appendChild(mark);
 }

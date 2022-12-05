@@ -345,7 +345,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-left: 10px solid #1263CE;
+  /* border-left: 10px solid #1263CE; */
 }
 
 .activity_summary:hover{
@@ -535,6 +535,25 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   border-radius: 6px;
 }
 
+#color_picker{
+  appearance: none;
+  width: 60px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#color_picker::-webkit-color-swatch{
+  border-radius: 6px;
+  border: none;
+}
+
+#color_picker::-moz-color-swatch{
+  border-radius: 6px;
+  border: none;
+}
+
 .hidden{
   display: none;
 }
@@ -679,7 +698,7 @@ input[type="time"]::-webkit-calendar-picker-indicator{
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
-  background-color: #217af4;
+  /* background-color: #217af4; */
   color: white;
   border-radius: 2px;
   margin-bottom: 1px;

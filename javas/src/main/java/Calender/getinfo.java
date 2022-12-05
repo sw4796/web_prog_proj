@@ -52,7 +52,7 @@ public class getinfo extends HttpServlet {
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 		            ResultSet.CONCUR_UPDATABLE);
 			//date와 년과 월이 일치하는 활동 list 추출해오기
-			String sql = "select location, date from activity where date_format(date, '%Y-%m') = '" + date_txt +"' order by date asc, time asc";
+			String sql = "select * from activity where date_format(date, '%Y-%m') = '" + date_txt +"' order by date asc, time asc";
 			rs = stmt.executeQuery(sql);
 		
 			//날짜, 장소 json 만들기
@@ -62,11 +62,12 @@ public class getinfo extends HttpServlet {
 				JSONObject data = new JSONObject();
 				data.put("date", rs.getString("date"));
 				data.put("location", rs.getString("location"));
+				data.put("color", rs.getString("color"));
 				System.out.println(data);
 				req_array.add(data);
 			}
 			jsonObject.put("data", req_array);
-			// {"data" : [ {"date": date ,"loaction": location}, {"date": date ,"loaction": location}, ...]} 형태로 저장
+			// {"data" : [ {"date": date ,"loaction": location, "color":color}, ...]} 형태로 저장
 			
 			// json 직렬화 하기
 			String jsonstr = jsonObject.toJSONString();

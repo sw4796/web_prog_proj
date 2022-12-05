@@ -23,7 +23,7 @@
 			stmt_list = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 		            ResultSet.CONCUR_UPDATABLE);
 			//date와 일치하는 활동 list 추출해오기
-			String sql_list = "select * from activity where date='" + date + "'";
+			String sql_list = "select * from activity where date='" + date + "' order by time asc";
 			rs_list = stmt_list.executeQuery(sql_list);
 			
 			rs_list.last();
@@ -48,7 +48,7 @@
 
 				%>
 				<li class="activity">
-		            <div class="activity_summary" onclick="open_activity_info(this)">
+		            <div class="activity_summary" onclick="open_activity_info(this)" style="border-left: 10px solid <%=rs_list.getString("color")%>">
 		                <p class="activity_time"><%=rs_list.getString("time").substring(0,5) %></p>
 		                <div class="activity_title">
 		                    <h3 class="activity_location"><%=rs_list.getString("location") %></h3>

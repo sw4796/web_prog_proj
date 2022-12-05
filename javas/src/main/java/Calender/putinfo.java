@@ -65,9 +65,10 @@ public class putinfo extends HttpServlet {
 			String number = request.getParameter("number");
 			String description = request.getParameter("description");
 			String writer = "sw4796";
+			String color = request.getParameter("color");
 	
 			String sql_insert = "insert into activity values(" + id + ",'" + location + "','" + time + "','" + date + "','"
-					+ number + "','" + description + "','" + writer + "')";
+					+ number + "','" + description + "','" + writer + "','" + color +"')";
 	
 			System.out.println(sql_insert);
 			
