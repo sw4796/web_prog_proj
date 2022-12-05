@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -9,6 +11,12 @@
 </head>
 
 <body>
+<%
+	//인증된 세션인지 확인
+	boolean login = true;
+	if(session.getAttribute("id")==null)
+		login = false;
+%>
     <div id="wrap">
         <nav class="navbar">
             <div class="navbar_logo">
@@ -27,8 +35,12 @@
                 <li><a href="ranking.jsp">랭킹</a></li>
             </ul>
             <ul class="navbar_sign">
-                <li><a href="LoginSignup.jsp">로그인</a></li>
-                <li><a href="LoginSignup.jsp">회원가입</a></li>
+            <%if(login){ //로그인 여부에 따라 바뀌기%>
+        		<li><a href="#">마이페이지</a></li>
+        		<li><a href="#">로그아웃</a></li>
+            <%} else{%>
+                <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
+            <%} %>
             </ul>
         </nav>
         <main>
@@ -80,7 +92,11 @@
                             <p>마커 색상:</p>
                             <input type="color" name="color" value="#217af4" id="color_picker">
                         </div>
-                        <div class="btn-container"><input type="submit" value="등록하기"></div>
+                        <div class="btn-container">
+                        	<%if(login){ //로그인일 때만 등록 표시%>
+                        		<input type="submit" value="등록하기">
+                        	<%} %>
+                        </div>
                     </form>
                     <button id="close"></button>
                     <img src="image/arrow.png" id="back">
@@ -153,7 +169,11 @@
                             <div class="activity_info hidden"></div>
                         </li> -->
                     </ul>
-                    <div class="btn-container"><button class="register_button" onclick="openModal_register()">추가하기</button></div>
+                    <div class="btn-container">
+                    <%if(login){ //로그인일 때만 버튼표시 %>
+                    	<button class="register_button" onclick="openModal_register()">추가하기</button>
+                    <%} %>
+                    </div>
                 </div>
             </div>
         </main>

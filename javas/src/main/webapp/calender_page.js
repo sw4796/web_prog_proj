@@ -241,3 +241,32 @@ function open_activity_info(activity){
   }
   slideToggle=!slideToggle;
 };
+
+function participate_activity(user_id,act_id,name){
+  $.ajax({
+    type: 'post',
+    url: "put_participation.do",
+    data: {
+      user_id: user_id,
+      act_id: act_id,
+      name: name
+    },
+    dataType: 'boolean',
+    success: function(status){
+      if(status === "success"){
+        alert("활동 참가 신청완료!");
+      }else if(status === "fail"){
+        alert("활동 참가에 실패했습니다.");
+      }else if(status === "exist"){
+        alert("이미 신청이 완료되었습니다.");
+      }else if(status === "full"){
+        alert("신청이 마감되었습니다.");
+      }else{
+        alert("error");
+      }
+    },
+    error: function(e){
+      alert("get_calender_mark: ajax_error");
+    }
+  });
+}

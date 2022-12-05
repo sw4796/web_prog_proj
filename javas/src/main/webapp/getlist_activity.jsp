@@ -8,6 +8,18 @@
 </head>
 <body>
 	<%
+		//인증된 세션인지 확인
+		boolean login = true;
+		String user_id = "";
+		String name = "";
+		
+		if(session.getAttribute("id")==null)
+			login = false;
+		else{
+			user_id = (String)session.getAttribute("id");
+			name = (String)session.getAttribute("name");
+		}
+
 		String date = request.getParameter("date");
 	
 		Connection conn = null;
@@ -56,7 +68,7 @@
 		                </div>
 		                <p class="activity_people"><%=rs_member.getRow() %>/<%=rs_list.getInt("max_member") %></p>
 		            </div>
-		            <div class="activity_info hidden">
+		            <div class="activity_info hidden" style="border-left: 10px solid <%=rs_list.getString("color")%>">
 		                <div class="description">
 		                    <h4>📜설명</h4>
 		                    <p> <%=rs_list.getString("description") %></p>
@@ -71,7 +83,11 @@
 			                    	}
 			                    %>
 		                    </div>
-		                    <div class="btn-container"><button class="participate_button">참여하기</button></div>
+		                    <div class="btn-container">
+		                    <%if(login){ //로그인일 때만 표시%>
+		                    	<button class="participate_button" onclick="participate_activity(<%=user_id%>,<%=rs_list.getInt("act_id")%>,<%=rs_list.getString("name")%>)">참여하기</button>
+		                    <%} %>
+		                    </div>
 		                </div>
 		            </div>
 		        </li>
