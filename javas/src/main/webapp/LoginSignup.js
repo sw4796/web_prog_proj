@@ -47,3 +47,88 @@ function passCheck()
         message.innerHTML="비밀번호가 일치하지 않습니다.";
     }
 }
+
+function idCheck()
+{
+	let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
+	let idcheck=document.getElementById("idcheck");
+	let id=document.getElementById("id").value;
+	//for(var i=0;i<id_list.length;i++)
+		//console.log(id_list[i]);
+	if(id=="")
+	{
+		alert("이메일을 입력해주세요.");
+		return;
+	}
+	if(regex.test(id)===false)
+	{
+		alert("이메일 형식으로 입력하세요");
+		return;
+	}
+	
+	$.ajax({
+		type:'post',
+		url:"ID_Duplicate_Check",
+		data:{
+			id:id
+		},
+		dataType:'json',
+		success: function(data){
+			let exist = data["exist"];
+			console.log(exist);
+			if(exist){
+				alert("이미 사용중인 이메일입니다.");
+				idcheck.className="uncheck";
+			}else{
+				alert("사용 가능한 이메일입니다.");
+				idcheck.className="check";
+			}
+		},
+		error: function(e){
+			alert("ajax error");
+		}
+	});
+}
+/*
+function loginCheck() {
+		let id_list=[<%=values.toString()%>];
+		let pw_list=[<%=pws.toString()%>];
+		let id=document.getElementById("login_id").value;
+		let pw=document.getElementById("login_pw").value;
+		let idIndex=id_list.indexOf(id);
+		
+		if(!id_list.includes(id))
+		{
+			alert("입력하신 이메일에 해당하는 회원정보가 존재하지 않습니다.");
+		}
+		else
+		{
+			if(pw!=pw_list[idIndex])
+			{
+				alert("비밀번호가 일치하지 않습니다.");
+			}
+			else
+			{
+				document.getElementById("login").submit();
+			}
+		}
+	}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
