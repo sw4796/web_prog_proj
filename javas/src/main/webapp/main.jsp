@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>main</title>
     <link rel="stylesheet" href="main_page.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
@@ -21,11 +22,11 @@
         </div>
         <nav class="navbar">
             <div class="navbar_logo">
-                <a href="main.html">JAVAS로고</a>
+                <a href="main.jsp">JAVAS로고</a>
             </div>
             <ul class="navbar_menu">
                 <li><a href="">소개</a></li>
-                <li><a href="calender.html">스케줄</a></li>
+                <li><a href="calender.jsp">스케줄</a></li>
                 <li>
                     <a href="">커뮤니티</a>
                     <ul>
@@ -61,7 +62,25 @@
                     <div></div>
                 </div>
                 <div class="calender">
-                    <div id="mini_calender"></div>
+                    <div id="mini_calender">
+                        <div class='rap'>
+                            <div class="header">
+                              <h2 class='dateTitle'></h2>
+                            </div>
+                            
+                            <div class="grid dateHead">
+                              <div>일</div>
+                              <div>월</div>
+                              <div>화</div>
+                              <div>수</div>
+                              <div>목</div>
+                              <div>금</div>
+                              <div>토</div>
+                            </div>
+                        
+                            <div class="grid dateBoard"></div>
+                        </div>
+                    </div>
                     <div id="this_week">
                         <h5>이번주 일정</h5>
                     </div>
@@ -75,6 +94,7 @@
             <p>김천일: qndldhd1@naver.com</p>
         </footer>
     </div>
+    <script type="text/javascript" src="main_page.js"></script>
 </body>
 
 </html>

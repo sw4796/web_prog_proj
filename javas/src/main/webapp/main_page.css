@@ -103,7 +103,7 @@ a {
 
 main {
     display: flex;
-    height: 100vh;
+    height: calc(100vh + 200px);
     padding-bottom: 110px;
     background-color: white;
     justify-content: center;
@@ -113,7 +113,7 @@ main {
 .container{
     display: grid;
     grid-template-columns: 3fr 2fr;
-    grid-template-rows: 200px 200px;
+    grid-template-rows: 225px 225px;
     grid-gap: 1rem;
     grid-template-areas: 
     'QnA calender'
@@ -126,7 +126,7 @@ main {
 
 .container h2{
     font-size: 20px;
-    margin: 5px 10px;
+    margin: 10px 10px;
     display: inline-block;
 }
 
@@ -147,22 +147,28 @@ main {
 .QnA{
     grid-area: QnA;
     background-color: #6BBAE8;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
     position: relative;
-    border-radius: 4px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .info{
     grid-area: info;
     background-color: #6BBAE8;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
     position: relative;
-    border-radius: 4px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .calender{
     grid-area: calender;
     background-color: #6BBAE8;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
     position: relative;
-    border-radius: 4px;
+    border-radius: 10px;
+    min-width: 250px;
 }
 
 #mini_calender{
@@ -172,6 +178,99 @@ main {
     height: calc(70% - 10px);
     margin: 10px;
     margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.rap{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .25rem .5rem;
+    
+    --start: 15%;
+      
+    height: 40px;
+}
+
+.header > h2{
+    display: inline-block;
+}
+
+
+.dateHead div {
+    background: #6BBAE8;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: .4rem;
+}
+
+.grid {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+grid-gap: 5px;
+}
+
+.grid > div {
+font-size: .6rem;
+}
+
+.dateBoard > div {
+font-weight: bold;
+min-height: 2.5rem;
+border-radius: 5px;
+border: 1px solid #eee;
+}
+
+.noColor {
+background: #eee;
+}
+
+.date{
+color: #222;
+cursor: pointer;
+overflow: hidden;
+}
+
+.date > P{
+padding: 0 0 .2rem .1rem;
+margin-top: .2rem;
+margin-bottom: 0;
+}
+
+.date:hover{
+background-color: #C6E6F9;
+}
+
+.today{
+color: red;
+}
+
+/* 달력에 일정 마크 */
+.mark_container{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+width: 100%;
+}
+
+.calender_mark{
+height: 5px;
+font-size: xx-small;
+display: block;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+-webkit-line-clamp: 1;
+/* background-color: #217af4; */
+color: white;
+border-radius: 2px;
+margin-bottom: 1px;
 }
 
 #this_week{

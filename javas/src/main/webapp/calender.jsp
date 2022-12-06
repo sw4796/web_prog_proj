@@ -20,11 +20,11 @@
     <div id="wrap">
         <nav class="navbar">
             <div class="navbar_logo">
-                <a href="main.html">JAVAS로고</a>
+                <a href="main.jsp">JAVAS로고</a>
             </div>
             <ul class="navbar_menu">
                 <li><a href="">소개</a></li>
-                <li><a href="calender.html">스케줄</a></li>
+                <li><a href="calender.jsp">스케줄</a></li>
                 <li>
                     <a href="">커뮤니티</a>
                     <ul>

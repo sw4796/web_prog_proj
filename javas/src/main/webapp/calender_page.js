@@ -54,7 +54,7 @@ function put_mark_calender(date, location,color){
     mark_date.appendChild(more_icon);
     return;
   //mark가 다 찼으면 끝내기(최대 3개)
-  }else if(mark_date.childElementCount > 1+3)
+  }else if(mark_date.childElementCount >= 1+3)
     return;
 
   //mark 만들기
