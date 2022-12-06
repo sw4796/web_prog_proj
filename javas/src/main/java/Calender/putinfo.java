@@ -1,14 +1,17 @@
 package Calender;
 
 import java.io.IOException;
-import java.io.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class putinfo
@@ -34,8 +37,12 @@ public class putinfo extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		request.setCharacterEncoding("utf-8");
-
-		int id = 0, cnt;
+		
+		HttpSession session=request.getSession();
+		String user_id = (String)session.getAttribute("id");
+		String name = (String)session.getAttribute("name");
+		
+		int act_id = 0, cnt;
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -54,26 +61,31 @@ public class putinfo extends HttpServlet {
 			while(rs.next()) {
 				cnt = rs.getInt("cnt");
 				if(cnt!=0)
-					id = rs.getInt("max_id");
+					act_id = rs.getInt("max_id");
 			}
 
-			id++;
+			act_id++;
 			// 활동 form 값 받아오기
 			String location = request.getParameter("location");
 			String time = request.getParameter("time");
 			String date = request.getParameter("date");
 			String number = request.getParameter("number");
 			String description = request.getParameter("description");
-			String writer = "sw4796";
+			String writer = user_id;
 			String color = request.getParameter("color");
 	
-			String sql_insert = "insert into activity values(" + id + ",'" + location + "','" + time + "','" + date + "','"
+			String sql_insert = "insert into activity values(" + act_id + ",'" + location + "','" + time + "','" + date + "','"
 					+ number + "','" + description + "','" + writer + "','" + color +"')";
 	
 			System.out.println(sql_insert);
 			
 			 //DB에 값 insert 하기 
 			stmt.executeUpdate(sql_insert); 
+			
+			//활동 DB에 주최자 추가하기
+			sql_insert = "insert into participation values('"+writer+"'," + act_id + ",'"+name+"')";
+			stmt.executeUpdate(sql_insert); 
+			
 			response.sendRedirect("calender.html");
 			
 			stmt.close();

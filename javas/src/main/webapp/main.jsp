@@ -22,18 +22,11 @@
         </div>
         <nav class="navbar">
             <div class="navbar_logo">
-                <a href="main.jsp">JAVAS로고</a>
+                <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
             </div>
             <ul class="navbar_menu">
-                <li><a href="">소개</a></li>
+                <li><a href="">동아리 소개</a></li>
                 <li><a href="calender.jsp">스케줄</a></li>
-                <li>
-                    <a href="">커뮤니티</a>
-                    <ul>
-                        <li><a href="">질문게시판</a></li>
-                        <li><a href="">정보게시판</a></li>
-                    </ul>
-                </li>
                 <li><a href="ranking.html">랭킹</a></li>
             </ul>
             <ul class="navbar_sign">
@@ -47,19 +40,9 @@
         </nav>
         <main>
             <div class="container">
-                <div class="QnA">
-                    <h2>질문게시판</h2>
-                    <a class="more" href="">+</a>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="info">
-                    <h2>정보게시판</h2>
-                    <a class="more" href="">+</a>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <div class="photo_album">
+                    <h2>사진첩</h2>
+                    <div class="photo_slide"></div>
                 </div>
                 <div class="calender">
                     <div id="mini_calender">

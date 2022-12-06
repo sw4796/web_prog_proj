@@ -8,6 +8,7 @@
     <title>main</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="calender_page.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css" />
 </head>
 
 <body>
@@ -94,7 +95,7 @@
                         </div>
                         <div class="btn-container">
                         	<%if(login){ //로그인일 때만 등록 표시%>
-                        		<input type="submit" id="register_button" value="등록하기">
+                        		<input type="submit" class="register_button" value="등록하기">
                         	<%} %>
                         </div>
                     </form>
@@ -171,7 +172,7 @@
                     </ul>
                     <div class="btn-container">
                     <%if(login){ //로그인일 때만 버튼표시 %>
-                    	<button class="register_button" onclick="openModal_register()">추가하기</button>
+                    	<button id="go_register_button" class="register_button" onclick="openModal_register()">추가하기</button>
                     <%} %>
                     </div>
                 </div>
