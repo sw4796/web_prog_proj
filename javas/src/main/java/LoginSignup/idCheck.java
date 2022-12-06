@@ -50,7 +50,7 @@ public class idCheck extends HttpServlet {
 			String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
 			conn=DriverManager.getConnection(jdbcurl, "root", "0000");
 			stmt=conn.createStatement();
-			String sql="select exists (select * from member where id='"+id+"') as exist";
+			String sql="select exists (select * from member where user_id='"+id+"') as exist";
 			rs=stmt.executeQuery(sql);
 			System.out.println(rs);
 
