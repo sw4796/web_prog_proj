@@ -50,7 +50,7 @@ public class LoginCheck extends HttpServlet {
 			String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
 			conn=DriverManager.getConnection(jdbcurl, "root", "0000");
 			stmt=conn.createStatement();
-			String sql="select * from member where id='"+id+"'";
+			String sql="select * from member where user_id='"+id+"'";
 			rs=stmt.executeQuery(sql);
 			
 			while(rs.next())
