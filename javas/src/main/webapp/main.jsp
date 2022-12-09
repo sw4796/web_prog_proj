@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat"%>
+
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 
@@ -25,9 +30,9 @@
                 <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
             </div>
             <ul class="navbar_menu">
-                <li><a href="">동아리 소개</a></li>
-                <li><a href="calender.jsp">스케줄</a></li>
-                <li><a href="ranking.html">랭킹</a></li>
+                <li><a href="">About Javas</a></li>
+                <li><a href="calender.jsp">Calender</a></li>
+                <li><a href="ranking.html">Ranking</a></li>
             </ul>
             <ul class="navbar_sign">
             <%if(login){ //로그인 여부에 따라 바뀌기%>
@@ -66,6 +71,58 @@
                     </div>
                     <div id="this_week">
                         <h5>이번주 일정</h5>
+                        <div class="activity">
+	                        <%
+		                        Connection conn = null;
+		                		Statement stmt = null;
+		                		ResultSet rs = null;
+		                	
+		                		try {
+		                			Class.forName("com.mysql.jdbc.Driver");
+		                			String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
+		                			conn = DriverManager.getConnection(jdbcurl,"root","0000");
+		                			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+		                		            ResultSet.CONCUR_UPDATABLE);
+		                			
+		                			//현재 날짜 가져오기
+		                			Date nowTime = new Date();
+		                			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		                			String date = sf.format(nowTime);
+		                			
+		                			//현재 date 일주일안의 활동 3개 가져오기
+		                			String sql = "SELECT * FROM activity WHERE date BETWEEN NOW() and DATE_ADD(NOW(), INTERVAL +1 WEEK ) order by date asc, time asc limit 3";
+		                			rs = stmt.executeQuery(sql);
+		                			
+		                			rs.last();
+		                			//아무 활동도 없는 경우
+		                			if(rs.getRow() == 0){
+		                				%>
+		                				<div class="empty_list">
+		                                	일주일 내에 예정된 활동이 없습니다!
+		                                </div>
+		                				<%
+		                			}
+		                			rs.beforeFirst();
+		                			
+		                			//활동 list 순회하면서 html 생성
+		                			while(rs.next()){
+										%>
+										<div class="activity_summary">
+											<div><%=rs.getString("date").substring(5) %></div>
+											<div><%=rs.getString("time").substring(0,5) %></div>
+											<div><%=rs.getString("location") %></div>
+										</div>
+										<%
+		                			}
+		                			stmt.close();
+		                			conn.close();
+		                		}
+		                		catch(Exception e) {
+		                			System.out.println("sql_list: DB 연동 오류입니다. :" + e.getMessage());
+		                		}
+		                		
+	                        %>
+                        </div>
                     </div>
                 </div>
             </div>
