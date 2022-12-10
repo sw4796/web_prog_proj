@@ -90,13 +90,13 @@
 			                    <%
 			                    	//활동 멤버 순회하면서 출력하기
 			                    	while(rs_member.next()){
-			                    		out.println("<div>"+rs_member.getString("user_id")+"</div>");
+			                    		out.println("<div>"+rs_member.getString("name")+"</div>");
 			                    	}
 			                    %>
 		                    </div>
 		                    <div class="btn-container">
 		                    <%if(login&&date_compare>=0){ //로그인을 하고 활동 시간이 끝나지 않았을 때만 표시%>
-		                    	<button class="participate_button" onclick="participate_activity(<%=user_id%>,<%=rs_list.getInt("act_id")%>,<%=rs_list.getString("name")%>)">참여하기</button>
+		                    	<button class="participate_button" onclick="participate_activity('<%=user_id%>',<%=rs_list.getInt("act_id")%>,'<%=name%>')">참여하기</button>
 		                    <%} %>
 		                    </div>
 		                </div>

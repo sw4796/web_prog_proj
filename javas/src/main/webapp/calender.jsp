@@ -8,6 +8,7 @@
     <title>main</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="calender_page.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css" />
 </head>
 
 <body>
@@ -20,18 +21,11 @@
     <div id="wrap">
         <nav class="navbar">
             <div class="navbar_logo">
-                <a href="main.html">JAVAS로고</a>
+                <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
             </div>
             <ul class="navbar_menu">
-                <li><a href="">소개</a></li>
-                <li><a href="calender.html">스케줄</a></li>
-                <li>
-                    <a href="">커뮤니티</a>
-                    <ul>
-                        <li><a href="">질문게시판</a></li>
-                        <li><a href="">정보게시판</a></li>
-                    </ul>
-                </li>
+                <li><a href="">자바쓰 소개</a></li>
+                <li><a href="calender.jsp">스케줄</a></li>
                 <li><a href="ranking.jsp">랭킹</a></li>
             </ul>
             <ul class="navbar_sign">
@@ -94,7 +88,7 @@
                         </div>
                         <div class="btn-container">
                         	<%if(login){ //로그인일 때만 등록 표시%>
-                        		<input type="submit" id="register_button" value="등록하기">
+                        		<input type="submit" class="register_button" value="등록하기">
                         	<%} %>
                         </div>
                     </form>
@@ -171,7 +165,7 @@
                     </ul>
                     <div class="btn-container">
                     <%if(login){ //로그인일 때만 버튼표시 %>
-                    	<button class="register_button" onclick="openModal_register()">추가하기</button>
+                    	<button id="go_register_button" class="register_button" onclick="openModal_register()">추가하기</button>
                     <%} %>
                     </div>
                 </div>

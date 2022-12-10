@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
 /**
  * Servlet implementation class put_participation
  */
@@ -39,7 +41,7 @@ public class put_participation extends HttpServlet {
 		String user_id = request.getParameter("user_id");
 		int act_id = Integer.parseInt(request.getParameter("act_id"));
 		String name = request.getParameter("name");
-		
+		System.out.println(user_id);
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -58,33 +60,43 @@ public class put_participation extends HttpServlet {
 			int max_num = rs.getInt("max_member");
 			
 			//현재 참가인원 가져오기
-			sql = "select count(*) as cnt from participation where act_id=" + act_id +
-					",select exists (select * from participation where act_id="+act_id+" and user_id='"+user_id+"') as exist";
+			sql = "select count(*) as cnt from participation where act_id=" + act_id;
 			rs = stmt.executeQuery(sql);
 			
 			rs.next();
 			int now_num = rs.getInt("cnt");
-			int exist = rs.getInt("exist");
 			
+			sql =  "select exists (select * from participation where act_id="+act_id+" and user_id='"+user_id+"') as exist";
+			rs = stmt.executeQuery(sql);
+			
+			rs.next();
+			int exist = rs.getInt("exist");
+			JSONObject result = new JSONObject();
+			System.out.println(now_num);
+			System.out.println(exist);
+
 			//참가인원이 모두 꽉찬 경우
 			if(now_num >= max_num) {
-				out.println("full");
+				result.put("status", "full");
+				out.println(result.toJSONString());
 				return;
 			}
 			//이미 참가한 경우
-			if(exist==0) {
-				out.println("exist");
+			if(exist==1) {
+				result.put("status", "exist");
+				out.println(result.toJSONString());
 				return;
 			}
 			
 			//참가 테이블에 데이터 입력하기
-			sql = "insert into participation values('"+ user_id + "'," + act_id + ",'" + name + "')";
+			sql = "insert into participation ( user_id, act_id, name ) values('"+ user_id + "'," + act_id + ",'" + name + "')";
 			stmt.executeUpdate(sql);
 			
-			out.println("success");
+			result.put("status", "success");
+			out.println(result.toJSONString());
 		}
 		catch(Exception e) {
-			System.out.println("max_id: DB 연동 오류입니다. :" + e.getMessage());
+			System.out.println("put_participation: DB 연동 오류입니다. :" + e.getMessage());
 			out.println("fail");
 		}
 		

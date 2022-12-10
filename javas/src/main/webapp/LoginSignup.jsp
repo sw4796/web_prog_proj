@@ -9,26 +9,34 @@
   <head>
     <link rel="stylesheet" href="LoginSignup_page.css" />
     <script src="LoginSignup.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>;
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   </head>
   <body>
+    <%
+      //인증된 세션인지 확인
+      boolean login = true;
+      if(session.getAttribute("id")==null)
+        login = false;
+    %>
     <div id="wrap">
       <nav class="navbar">
         <div class="navbar_logo">
-          <a href="main.html">JAVAS로고</a>
+            <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
         </div>
         <ul class="navbar_menu">
-          <li><a href="">소개</a></li>
-          <li><a href="">스케줄</a></li>
-          <li><a href="">정보게시판</a></li>
-          <li><a href="">질문게시판</a></li>
-          <li><a href="">랭킹</a></li>
+            <li><a href="">About Javas</a></li>
+            <li><a href="calender.jsp">Calender</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
         </ul>
         <ul class="navbar_sign">
-          <li><a href="">로그인</a></li>
-          <li><a href="">회원가입</a></li>
+        <%if(login){ //로그인 여부에 따라 바뀌기%>
+        <li><a href="#">마이페이지</a></li>
+        <li><a href="#">로그아웃</a></li>
+        <%} else{%>
+            <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
+        <%} %>
         </ul>
-      </nav>
+    </nav>
       <main>
         <div class="container" id="container">
           <div class="form-container sign-up-container">
@@ -55,10 +63,9 @@
               <h1>Log In</h1>
               <br />
               <input type="text" id="login_id" name="login_id" placeholder="Email" />
-              <input type="password" id="login_pw" name="login_pw" placeholder="PW" /><br />
+              <input type="password" id="login_pw" name="login_pw" placeholder="PW" />
               <div class="login_option">
-                <span class="login_option_background"><input type="checkbox" />로그인 유지</span>
-                <span class="login_option_background"><a href="findIDPW.jsp">비밀번호 찾기</a></span>
+                <span class="login_option_background"><a href="findIDPW.jsp" id="find_pw">비밀번호 찾기</a></span>
               </div>
               <br /><input type="submit" class="login_button" id="login_button" value="로그인" />
             </form>
@@ -79,7 +86,12 @@
           </div>
         </div>
       </main>
-      <footer></footer>
+      <footer>
+        <p>천일이CU가는중</p>
+        <p>이시우: swlee4796@naver.com</p>
+        <p>강은중: imgoing02@naver.com</p>
+        <p>김천일: qndldhd1@naver.com</p>
+    </footer>
     </div>
   </body>  
 </html>

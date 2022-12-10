@@ -54,7 +54,7 @@ function put_mark_calender(date, location,color){
     mark_date.appendChild(more_icon);
     return;
   //mark가 다 찼으면 끝내기(최대 3개)
-  }else if(mark_date.childElementCount > 1+3)
+  }else if(mark_date.childElementCount >= 1+3)
     return;
 
   //mark 만들기
@@ -213,7 +213,7 @@ function fn_selectDate(click_date){
   modal_list_header.querySelector("h3").innerText = date_txt.substring(5).replace("-","/") + " 활동 List";
   //오늘 날짜 텍스트로 변환
   today_date_txt = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
-  let register_button = document.querySelector("#register_button");
+  let register_button = document.querySelector("#go_register_button");
 
   $.ajax({
     type: 'post',
@@ -225,12 +225,13 @@ function fn_selectDate(click_date){
     success: function(data){
       $("#activity_list").html(data);
       //login이 되어있는 경우에만 고려
+      console.log(register_button);
       if(register_button != null){
         //활동 시간이 이미 지난 경우
         if(new Date(date_txt) < new Date(today_date_txt)){
-          $("#register_button").classList.add("hidden");
+          register_button.classList.add("hidden");
         }else{
-          $("#register_button").classList.remove("hidden");
+          register_button.classList.remove("hidden");
         }
       }
       openModal();
@@ -257,28 +258,29 @@ function open_activity_info(activity){
 function participate_activity(user_id,act_id,name){
   $.ajax({
     type: 'post',
-    url: "put_participation.do",
+    url: "participation.do",
     data: {
       user_id: user_id,
       act_id: act_id,
       name: name
     },
-    dataType: 'boolean',
-    success: function(status){
+    dataType: 'json',
+    success: function(data){
+      let status = data["status"];
+      console.log(status);
       if(status === "success"){
         alert("활동 참가 신청완료!");
-      }else if(status === "fail"){
-        alert("활동 참가에 실패했습니다.");
+        location.href = "calender.jsp";
       }else if(status === "exist"){
         alert("이미 신청이 완료되었습니다.");
       }else if(status === "full"){
         alert("신청이 마감되었습니다.");
       }else{
-        alert("error");
+        alert("활동 참가에 실패했습니다.");
       }
     },
     error: function(e){
-      alert("get_calender_mark: ajax_error");
+      alert("participate_activity: ajax_error");
     }
   });
 }

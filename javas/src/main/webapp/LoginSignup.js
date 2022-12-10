@@ -53,8 +53,7 @@ function idCheck()
 	let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
 	let idcheck=document.getElementById("idcheck");
 	let id=document.getElementById("id").value;
-	//for(var i=0;i<id_list.length;i++)
-		//console.log(id_list[i]);
+
 	if(id=="")
 	{
 		alert("이메일을 입력해주세요.");
