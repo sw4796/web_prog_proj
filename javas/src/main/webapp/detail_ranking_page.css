@@ -301,6 +301,32 @@ footer > p{
     font-size: 20px;
 }
 
+.climbing-level .rank-part {
+	position: absolute;
+	font-size: 60px;
+	float: left;
+	margin-left: 2%;
+	top: 60px;
+	width: 15%;
+}
+
+.climbing-level .name-part {
+	position: absolute;
+	font-size: 60px;
+	float: left;
+	margin-left: 15%;
+	top: 60px;
+	width: 30%;
+}
+
+.climbing-level .score-part {
+	position: absolute;
+	float: left;
+	margin-left: 45%;
+	top: 60px;
+	width: 20%;
+}
+
 .climbing-level .silver {
     float: left;
     width:30%;
@@ -330,3 +356,60 @@ footer > p{
 .plus {
     margin-top: 1px;
 }
+
+.non-member_alert {
+    width: 800px;
+    height: 640px;
+    margin: 5px;
+    text-align: center;
+    position: relative;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.alert_font {
+	color: white;
+    font-size: 40px;
+    margin: 50px auto 50px auto;
+}
+
+.outer-circle {
+	position: absolute;
+	left: 555px;
+	bottom: 35px;
+	width: 130px;
+  	height: 130px;
+  	border-radius: 50%;
+  	background-color: #f2f2f2;
+}
+
+.inner-circle {
+	position: absolute;
+	left: 580px;
+	bottom: 60px;
+	width : 80px;
+  	height : 80px;
+ 	border-radius: 50%;
+  	background-color: #f2f2f2;
+}
+
+.pie_wrap {
+	display: flex;flex-wrap:wrap;width: 400px;margin: 50px auto 0;
+	float: left;
+	margin-left: 70%;
+	margin-top: 5%;
+}
+.pie_res {position: relative;width: 30%;height: 0;padding-bottom: 30%;}
+.pie {position: absolute;top: 0;left: 0;display: block;width: 100%;height: 100%;}
+
+/* 원형 그래프 비율 표시 - CSS 고정 */
+.pie circle {r:25%;cx:50%;cy:50%;fill:transparent;stroke-width:50%;stroke:#ddd;transform: rotate(-90deg);transform-origin:center;transition:all 0.5s;}
+
+/* 원형 그래프 리스트 */
+.pie_info {width: 50%;padding: 5% 0 0 5%;}
+.pie_info > li {font-size: 0;}
+.pie_info > li .color {display: inline-block;vertical-align: middle;width: 8px;height: 8px;margin-right: 5px;border-radius:4px;background: #000;}
+.pie_info > li .txt {display: inline-block;vertical-align: middle;font-size: 14px;color: #333;}

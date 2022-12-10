@@ -354,14 +354,14 @@
                 <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
             </div>
             <ul class="navbar_menu">
-                <li><a href="">자바쓰 소개</a></li>
+                <li><a href="intro.jsp">자바쓰 소개</a></li>
                 <li><a href="calender.jsp">스케줄</a></li>
                 <li><a href="ranking.jsp">랭킹</a></li>
             </ul>
             <ul class="navbar_sign">
             <%if(login){ //로그인 여부에 따라 바뀌기%>
-        		<li><a href="#">마이페이지</a></li>
-        		<li><a href="#">로그아웃</a></li>
+        		<li><a href="mypage.jsp">마이페이지</a></li>
+        		<li><a href="logout.jsp">로그아웃</a></li>
             <%} else{%>
                 <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
             <%} %>

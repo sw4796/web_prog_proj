@@ -8,8 +8,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>ranking</title>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>;
+	<title>랭킹</title>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<link rel="stylesheet" href="ranking_page.css">
 </head>
     <body>
@@ -34,7 +34,6 @@
     Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	String sql_update;
 	
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -51,211 +50,214 @@
 	rs.last();
 	rs.beforeFirst();
 	
-	while(rs.next()) {
+	while (rs.next()) {
 		if (Integer.parseInt(rs.getString("total_attendance")) > max_attendance) {
 			max_attendance = Integer.parseInt(rs.getString("total_attendance"));
-			max_attendance_name = rs.getString("user_name");
+			max_attendance_name = rs.getString("name");
 			max_attendance_level = rs.getString("level");
 		}
 		if (Integer.parseInt(rs.getString("total_clear")) > max_clear) {
 			max_clear = Integer.parseInt(rs.getString("total_clear"));
-			max_clear_name = rs.getString("user_name");
+			max_clear_name = rs.getString("name");
 			max_clear_level = rs.getString("level");
 		}
 		if (rs.getString("level").equals("검정")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				black_name[0] = rs.getString("user_name");
+				black_name[0] = rs.getString("name");
 				black_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				black_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				black_name[1] = rs.getString("user_name");
+				black_name[1] = rs.getString("name");
 				black_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				black_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				black_name[2] = rs.getString("user_name");
+				black_name[2] = rs.getString("name");
 				black_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				black_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("갈색")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				brown_name[0] = rs.getString("user_name");
+				brown_name[0] = rs.getString("name");
 				brown_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				brown_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				brown_name[1] = rs.getString("user_name");
+				brown_name[1] = rs.getString("name");
 				brown_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				brown_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				brown_name[2] = rs.getString("user_name");
+				brown_name[2] = rs.getString("name");
 				brown_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				brown_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("회색")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				gray_name[0] = rs.getString("user_name");
+				gray_name[0] = rs.getString("name");
 				gray_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				gray_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				gray_name[1] = rs.getString("user_name");
+				gray_name[1] = rs.getString("name");
 				gray_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				gray_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				gray_name[2] = rs.getString("user_name");
+				gray_name[2] = rs.getString("name");
 				gray_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				gray_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("보라")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				purple_name[0] = rs.getString("user_name");
+				purple_name[0] = rs.getString("name");
 				purple_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				purple_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				purple_name[1] = rs.getString("user_name");
+				purple_name[1] = rs.getString("name");
 				purple_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				purple_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				purple_name[2] = rs.getString("user_name");
+				purple_name[2] = rs.getString("name");
 				purple_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				purple_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("빨강")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				red_name[0] = rs.getString("user_name");
+				red_name[0] = rs.getString("name");
 				red_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				red_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				red_name[1] = rs.getString("user_name");
+				red_name[1] = rs.getString("name");
 				red_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				red_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				red_name[2] = rs.getString("user_name");
+				red_name[2] = rs.getString("name");
 				red_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				red_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("파랑")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				blue_name[0] = rs.getString("user_name");
+				blue_name[0] = rs.getString("name");
 				blue_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				blue_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				blue_name[1] = rs.getString("user_name");
+				blue_name[1] = rs.getString("name");
 				blue_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				blue_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				blue_name[2] = rs.getString("user_name");
+				blue_name[2] = rs.getString("name");
 				blue_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				blue_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("초록")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				green_name[0] = rs.getString("user_name");
+				green_name[0] = rs.getString("name");
 				green_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				green_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				green_name[1] = rs.getString("user_name");
+				green_name[1] = rs.getString("name");
 				green_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				green_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				green_name[2] = rs.getString("user_name");
+				green_name[2] = rs.getString("name");
 				green_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				green_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("주황")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				orange_name[0] = rs.getString("user_name");
+				orange_name[0] = rs.getString("name");
 				orange_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				orange_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				orange_name[1] = rs.getString("user_name");
+				orange_name[1] = rs.getString("name");
 				orange_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				orange_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				orange_name[2] = rs.getString("user_name");
+				orange_name[2] = rs.getString("name");
 				orange_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				orange_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("노랑")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				yellow_name[0] = rs.getString("user_name");
+				yellow_name[0] = rs.getString("name");
 				yellow_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				yellow_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				yellow_name[1] = rs.getString("user_name");
+				yellow_name[1] = rs.getString("name");
 				yellow_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				yellow_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				yellow_name[2] = rs.getString("user_name");
+				yellow_name[2] = rs.getString("name");
 				yellow_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				yellow_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 		else if (rs.getString("level").equals("하양")) {
 			if (Integer.parseInt(rs.getString("ranking")) == 1) {
-				white_name[0] = rs.getString("user_name");
+				white_name[0] = rs.getString("name");
 				white_attendance[0] = Integer.parseInt(rs.getString("total_attendance"));
 				white_clear[0] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 2) {
-				white_name[1] = rs.getString("user_name");
+				white_name[1] = rs.getString("name");
 				white_attendance[1] = Integer.parseInt(rs.getString("total_attendance"));
 				white_clear[1] = Integer.parseInt(rs.getString("total_clear"));
 			}
 			else if (Integer.parseInt(rs.getString("ranking")) == 3) {
-				white_name[2] = rs.getString("user_name");
+				white_name[2] = rs.getString("name");
 				white_attendance[2] = Integer.parseInt(rs.getString("total_attendance"));
 				white_clear[2] = Integer.parseInt(rs.getString("total_clear"));
 			}
 		}
 	}
     %>
+    <%
+	//인증된 세션인지 확인
+	boolean login = true;
+	if(session.getAttribute("id")==null)
+		login = false;
+%>
         <div id="wrap">
             <nav class="navbar">
-                <div class="navbar_logo">
-                    <a href="main.html">JAVAS로고</a>
-                </div>
-                <ul class="navbar_menu">
-                    <li><a href="">소개</a></li>
-                    <li><a href="calender.html">스케줄</a></li>
-                    <li>
-                        <a href="">커뮤니티</a>
-                        <ul>
-                            <li><a href="">질문게시판</a></li>
-                            <li><a href="">정보게시판</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="ranking.jsp">랭킹</a></li>
-                </ul>
-                <ul class="navbar_sign">
-                    <li><a href="LoginSignup.jsp">로그인</a></li>
-                    <li><a href="signup.html">회원가입</a></li>
-                </ul>
-            </nav>
+            <div class="navbar_logo">
+                <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
+            </div>
+            <ul class="navbar_menu">
+                <li><a href="intro.jsp">자바쓰 소개</a></li>
+                <li><a href="calender.jsp">스케줄</a></li>
+                <li><a href="ranking.jsp">랭킹</a></li>
+            </ul>
+            <ul class="navbar_sign">
+            <%if(login){ //로그인 여부에 따라 바뀌기%>
+        		<li><a href="mypage.jsp">마이페이지</a></li>
+        		<li><a href="logout.jsp">로그아웃</a></li>
+            <%} else{%>
+                <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
+            <%} %>
+            </ul>
+        </nav>
             <br><br>
             <main>
                 <div class="player-content">
@@ -263,20 +265,20 @@
                         <div class="wrapper">
                             <div class="slider">
                                 <img class="medal" src="image/first-medal.png" alt="first medal">
-                                <span>이달의 출석왕</span>
+                                <span>출석왕</span>
                                 <img class="medal" src="image/first-medal.png" alt="first medal"><br>
                                 <img class="first-profil" src="image/basic-profil.jpeg" alt="profil"><br>
                                 <div class="player-name"><%= max_attendance_name %></div>
-                                <div class="small-font">이번달 출석 횟수 : <%= max_attendance %></div>
+                                <div class="small-font">누적 출석 횟수 : <%= max_attendance %></div>
                                 <div class="small-font">클라이머 레벨 : <%= max_attendance_level %></div>
                             </div>
                             <div class="slider">
                                 <img class="medal" src="image/first-medal.png" alt="first medal">
-                                <span>이달의 등반왕</span>
+                                <span>등반왕</span>
                                 <img class="medal" src="image/first-medal.png" alt="first medal"><br>
                                 <img class="first-profil" src="image/basic-profil.jpeg" alt="profil"><br>
                                 <div class="player-name"><%= max_clear_name %></div>
-                                <div class="small-font">이번달 등반 횟수 : <%= max_clear %></div>
+                                <div class="small-font">누적 등반 횟수 : <%= max_clear %></div>
                                 <div class="small-font">클라이머 레벨 : <%= max_clear_level %></div>
                             </div>
                         </div>
