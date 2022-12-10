@@ -1,8 +1,7 @@
-@font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css");
+
+*{
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 html {
@@ -145,10 +144,7 @@ footer > p{
     flex-direction: column;
     width: 820px;
     padding: 10px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
     margin:5px;
-    background-color:SEASHELL;
     align-items: center;
     justify-content: center;
     font-family: 'LINESeedKR-Bd';
@@ -238,6 +234,7 @@ footer > p{
     font-size: 22px;
     text-align: center;
     position: relative;
+    border-radius: 10px;
 }
 
 .color-black {
@@ -256,17 +253,17 @@ footer > p{
 }
 
 .color-purple {
-    background-color: purple;
+    background-color: #B117F4;
     color: white;
 }
 
 .color-red {
-    background-color: red;
+    background-color: #FF1F0D;
     color: white;
 }
 
 .color-blue {
-    background-color: blue;
+    background-color: #217af4;
 }
 
 .color-green {
@@ -274,11 +271,11 @@ footer > p{
 }
 
 .color-orange {
-    background-color: orange;
+    background-color: #FFA40D;
 }
 
 .color-yellow {
-    background-color: yellow;
+    background-color: #FFCD0D;
 }
 
 .color-white {
@@ -355,15 +352,16 @@ footer > p{
     margin: 5px;
     text-align: center;
     position: relative;
-    background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
 }
 
 .alert_font {
-	color: white;
+	color: black;
     font-size: 40px;
     margin: 50px auto 50px auto;
 }

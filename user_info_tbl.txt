@@ -1,8 +1,8 @@
 create table user_info(
 user_id varchar(40) not null,
 name varchar(20) not null,
-level varchar(15) DEFAULT 'white' not null,
-image varchar(80) DEFAULT 'image/basic-profil.jpeg',
+level varchar(15) DEFAULT '하양' not null,
+image varchar(80) DEFAULT 'basic-profil.jpeg',
 black_clear int DEFAULT 0,
 brown_clear int DEFAULT 0,
 gray_clear int DEFAULT 0,

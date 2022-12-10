@@ -1,8 +1,7 @@
-@font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css");
+
+*{
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 html {
@@ -18,7 +17,8 @@ body {
 main {
     display: flex;
     height: auto;
-    padding-bottom: 110px;
+    padding-bottom: calc(110px + 60px);
+    padding-top: 60px;
     background-color: white;
     justify-content: center;
     align-items: center;
@@ -145,10 +145,8 @@ footer > p{
     flex-direction: column;
     width: 820px;
     padding: 10px;
-    border: 1px solid lightgray;
     border-radius: 10px;
-    margin:5px;
-    background-color:SEASHELL;
+    background-color:white;
     align-items: center;
     justify-content: center;
     font-family: 'LINESeedKR-Bd';
@@ -181,8 +179,17 @@ footer > p{
     margin: 5px;
     color: white;
     font-size: 35px;
+    font-weight: 600;
     text-align: center;
     background-color: silver;
+}
+
+.slider > h2{
+    display: inline-block;
+    color: #FFCD0D;
+    margin: 0;
+    font-size: 35px;
+    font-weight: 600;
 }
 
 .pagination { 
@@ -236,8 +243,12 @@ footer > p{
     margin: 5px;
     color: black;
     font-size: 22px;
+    font-weight: 600;
     text-align: center;
     position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+    background-color: white;
 }
 
 .color-black {
@@ -256,17 +267,17 @@ footer > p{
 }
 
 .color-purple {
-    background-color: purple;
+    background-color: #B117F4;
     color: white;
 }
 
 .color-red {
-    background-color: red;
+    background-color: #FF1F0D;
     color: white;
 }
 
 .color-blue {
-    background-color: blue;
+    background-color: #217af4;
 }
 
 .color-green {
@@ -274,11 +285,11 @@ footer > p{
 }
 
 .color-orange {
-    background-color: orange;
+    background-color: #FFA40D;
 }
 
 .color-yellow {
-    background-color: yellow;
+    background-color: #FFCD0D;
 }
 
 .color-white {
@@ -286,7 +297,9 @@ footer > p{
 }
 
 .climbing-level .climbing-label {
-    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px 10px 0 0;
 }
 
 .climbing-level .climbing-font {
@@ -316,9 +329,5 @@ footer > p{
     border-radius: 12px;
     position: absolute;
     right: 8px;
-    top: 10px;
-}
-
-.plus {
-    margin-top: 1px;
+    top: 6px;
 }

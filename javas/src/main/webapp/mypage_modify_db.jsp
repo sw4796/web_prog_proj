@@ -18,8 +18,8 @@ int new_white=0, new_yellow=0, new_orange=0, new_green=0, new_blue=0, new_red=0,
 
 try {
 	Class.forName("com.mysql.jdbc.Driver");
-	String url = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-	conn = DriverManager.getConnection(url, "root", "0000");
+	String jdbcurl = "jdbc:mysql://localhost/javasclimbing?serverTimezone=UTC";
+	conn = DriverManager.getConnection(jdbcurl,"javasclimbing","javas!21!");
 	stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 	String sql = "select * from user_info where user_id='" + id + "'";
 	rs = stmt.executeQuery(sql);

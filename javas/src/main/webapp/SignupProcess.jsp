@@ -10,7 +10,6 @@
     <meta charset="utf-8">
     <title>main</title>
     <link rel="stylesheet" href="SignupProcess_page.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
@@ -41,31 +40,31 @@
         </nav>
         <main>
         <%
-        	String id=request.getParameter("id");
-        	String name=request.getParameter("name");
-        	String pw=request.getParameter("pw");
-        	String Qans=request.getParameter("Qans");
-        	int Qnum=Integer.parseInt(request.getParameter("Qnum"));
-        	Connection conn=null;
-        	Statement stmt=null;
-        	ResultSet rs=null;
-        	String sql, sql2;
-        	
-        	//out.println("insert into member values('"+id+"','"+name+"','"+pw+"',"+Qnum+",'"+Qans+"')");
-        	try {
-        		Class.forName("com.mysql.jdbc.Driver");
-        		String url="jdbc:mysql://127.0.0.1:3306/javas?serverTimezone=UTC";
-        		conn=DriverManager.getConnection(url,"root","0000");
-        		stmt=conn.createStatement();
-        		sql="insert into member values('"+id+"','"+name+"','"+pw+"',"+Qnum+",'"+Qans+"')";
-        		stmt.executeUpdate(sql);
-        		sql2 = "insert into user_info (user_id, name) value('" + id + "', '" + name + "')";
-                stmt.executeUpdate(sql2);
-        	}catch(Exception e){
-        		out.println("DB 연동 오류입니다 : "+e.getMessage());
-        	}
+           String id=request.getParameter("id");
+           String name=request.getParameter("name");
+           String pw=request.getParameter("pw");
+           String Qans=request.getParameter("Qans");
+           int Qnum=Integer.parseInt(request.getParameter("Qnum"));
+           Connection conn=null;
+           Statement stmt=null;
+           ResultSet rs=null;
+           String sql;
+           String sql2;
+           //out.println("insert into member values('"+id+"','"+name+"','"+pw+"',"+Qnum+",'"+Qans+"')");
+           try {
+              Class.forName("com.mysql.jdbc.Driver");
+              String jdbcurl = "jdbc:mysql://localhost/javasclimbing?serverTimezone=UTC";
+      		conn = DriverManager.getConnection(jdbcurl,"javasclimbing","javas!21!");
+              stmt=conn.createStatement();
+              sql="insert into member values('"+id+"','"+name+"','"+pw+"',"+Qnum+",'"+Qans+"')";
+              stmt.executeUpdate(sql);
+              sql2 = "insert into user_info (user_id, name) value('" + id + "', '" + name + "')";
+              stmt.executeUpdate(sql2);
+           }catch(Exception e){
+              out.println("DB 연동 오류입니다 : "+e.getMessage());
+           }
         %>
-          <div class="container">
+        <div class="container">
             <h1><span class="color-javas_red">회원가입을 </span><span class="color-javas_orange">축하드립니다.</span></h1>
             <a href="LoginSignup.jsp"><span class="color-javas_blue">로그인 화면으로 돌아가기</span></a>
           </div>

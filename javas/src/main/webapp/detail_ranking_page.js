@@ -9,7 +9,7 @@ function pieAct(){
         $('.pie')[0].setAttribute('viewBox', '0 0 '+pieWidth +' '+pieWidth+'');
     })
 
-    var color = ["white", "yellow", "orange", "green", "blue", "red", "purple", "gray", "#804000", "black"]; //그래프 색상
+    var color = ["white", "#FFCD0D", "#FFA40D", "green", "#217af4", "#FF1F0D", "#B117F4", "gray", "#804000", "black"]; //그래프 색상
     var angel = -90; //그래프 시작 지점
     var pieWidth = $('.pie').width();
 

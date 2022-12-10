@@ -237,7 +237,8 @@ function fn_selectDate(click_date){
       openModal();
     },
     error: function(e){
-      alert("ajax_error");
+      alert("ajax_error: get_list");
+      location.href="main.jsp";
     }
   });
 
