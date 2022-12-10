@@ -371,7 +371,46 @@
             <div class="container">
                 <div class="photo_album">
                     <h2>사진첩</h2>
-                    <div class="photo_slide"></div>
+                    <div class="photo_slide">
+                        <div id="wrapper">
+                            <div id="slider-wrap">
+                              <ul id="slider">
+                                <li>
+                                  <img src="image/main_pic5.jpg" />
+                                </li>
+            
+                                <li>
+                                  <img src="image/main_pic2.jpg" />
+                                </li>
+            
+                                <li>
+                                  <img src="image/main_pic3.jpg" />
+                                </li>
+            
+                                <li>
+                                  <img src="image/main_pic4.jpg" />
+                                </li>
+            
+                                <li>
+                                  <img src="image/main_pic1.jpg" />
+                                </li>
+                              </ul>
+            
+                              <!--controls-->
+                              <div class="btns" id="next">
+                                <img src="image/arrow_right.png"/>
+                              </div>
+                              <div class="btns" id="previous">
+                                <img src="image/arrow.png"/>
+                              </div>
+            
+                              <div id="pagination-wrap">
+                                <ul></ul>
+                              </div>
+                              <!--controls-->
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="calender">
                     <div id="mini_calender">
