@@ -190,7 +190,7 @@ a {
 
 main {
     display: flex;
-    height: calc(110vh);
+    height: 100vh;
     padding-bottom: 110px;
     background-color: white;
     justify-content: center;
@@ -199,9 +199,9 @@ main {
 
 .container{
     display: grid;
-    grid-template-columns: 450px 300px;
-    grid-template-rows: 450px;
-    grid-gap: 1rem;
+    grid-template-columns: 550px 400px;
+    grid-template-rows: 550px;
+    grid-gap: 3rem;
     grid-template-areas: 
     'photo_album calender';
 
@@ -227,7 +227,7 @@ main {
 
 .photo_slide{
     width: 100%;
-    height: 400px;
+    height: 500px;
     background-color: white;
 }
 
@@ -291,7 +291,7 @@ font-size: .6rem;
 
 .dateBoard > div {
 font-weight: bold;
-min-height: 2.5rem;
+min-height: 3.4rem;
 border-radius: 5px;
 border: 1px solid #eee;
 }
@@ -358,8 +358,8 @@ margin-bottom: 1px;
 .empty_list{
     color: 	#818181;
     font-size: 16px;
-    margin-left: 30px;
-    margin-top: 25px;
+    margin-left: 85px;
+    margin-top: 35px;
     display: inline-block;
 }
 
@@ -398,8 +398,6 @@ margin-bottom: 1px;
 footer {
     width: 100%;
     height: 110px;
-    bottom: 0px;
-    position: absolute;
     background-color: #f1f4f7;
     /* border-top: 1px solid black; */
     display: flex;

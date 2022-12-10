@@ -410,7 +410,7 @@
 		                			
 		                			
 		                			//현재 date 일주일안의 활동 3개 가져오기
-		                			String sql = "SELECT * FROM activity WHERE date BETWEEN DATE_ADD(NOW(), INTERVAL +1 WEEK ) and NOW() order by date asc, time asc limit 3";
+		                			String sql = "SELECT * FROM activity WHERE date BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK ) and NOW() order by date asc, time asc limit 5";
 		                			rs = stmt.executeQuery(sql);
 		                			
 		                			rs.last();
