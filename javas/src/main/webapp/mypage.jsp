@@ -67,27 +67,31 @@
 				<div class="myInfoBox">
         			<br><br>
         			<img class="first-profil" src="image/<%= rs.getString("image") %>" alt="profil">
-					<div class="player-name"><%= rs.getString("name") %> 님의 마이페이지</div>
-        			<p>클라이머 레벨 : <%= rs.getString("level") %>
-        			<p>평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %>
-					<p>누적 출석 횟수 : <%= rs.getString("total_attendance") %>
-                	<p>누적 등반 횟수 : <%= rs.getString("total_clear") %>
-	                <p>하양 클리어 : <%= rs.getString("white_clear") %>
-	                <p>노랑 클리어 : <%= rs.getString("yellow_clear") %>
-	                <p>주황 클리어 : <%= rs.getString("orange_clear") %>
-	                <p>초록 클리어 : <%= rs.getString("green_clear") %>
-	                <p>파랑 클리어 : <%= rs.getString("blue_clear") %>
-	                <p>빨강 클리어 : <%= rs.getString("red_clear") %>
-	                <p>보라 클리어 : <%= rs.getString("purple_clear") %>
-	                <p>회색 클리어 : <%= rs.getString("gray_clear") %>
-	                <p>갈색 클리어 : <%= rs.getString("brown_clear") %>
-	                <p>검정 클리어 : <%= rs.getString("black_clear") %>
-	                <br><br>
-	                <a href="mypage_modify.jsp">활동 반영하기</a>
-	                <form action="imageUpload.jsp" method="post" enctype="multipart/form-data">
+					<form action="imageUpload.jsp" method="post" enctype="multipart/form-data" class="file_box">
 						<input type="file" name="uploadfiles"><br> 
 						<input type="submit" value="사진 수정하기">
 					</form>
+					<div class="player-name"><%= rs.getString("name") %> 님의 마이페이지</div>
+        			<p>클라이머 레벨 : <%= rs.getString("level") %></p>
+        			<div class="score_board">
+						<p>평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></p>
+						<p>누적 출석 횟수 : <%= rs.getString("total_attendance") %></p>
+						<p>누적 등반 횟수 : <%= rs.getString("total_clear") %></p>
+					</div>
+	                <div class="level_clear">
+						<p>⚪ 클리어 : <%= rs.getString("white_clear") %></p>
+						<p>🟡 클리어 : <%= rs.getString("yellow_clear") %></p>
+						<p>🟠 클리어 : <%= rs.getString("orange_clear") %></p>
+						<p>🟢 클리어 : <%= rs.getString("green_clear") %></p>
+						<p>🔵 클리어 : <%= rs.getString("blue_clear") %></p>
+						<p>🔴 클리어 : <%= rs.getString("red_clear") %></p>
+						<p>🟣 클리어 : <%= rs.getString("purple_clear") %></p>
+						<p>🐘 클리어 : <%= rs.getString("gray_clear") %></p>
+						<p>🟤 클리어 : <%= rs.getString("brown_clear") %></p>
+						<p>⚫ 클리어 : <%= rs.getString("black_clear") %></p>
+					</div>
+	                <br><br>
+	                <a href="mypage_modify.jsp" id="modify_button">활동 반영하기</a>
 				</div>
         	</div>
         <%

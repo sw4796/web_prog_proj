@@ -199,7 +199,7 @@ main {
 
 .container{
     display: grid;
-    grid-template-columns: 550px 400px;
+    grid-template-columns: 500px 400px;
     grid-template-rows: 550px;
     grid-gap: 3rem;
     grid-template-areas: 
@@ -397,17 +397,17 @@ margin-bottom: 1px;
 } */
 
 #wrapper{
-    width:450px;
+    width:500px;
     
-    height:400px;
+    height:500px;
     position:relative;
     color:#fff;
     text-shadow:rgba(0,0,0,0.1) 2px 2px 0px;  
   }
   
   #slider-wrap{
-    width:450px;
-    height:400px;
+    width:500px;
+    height:500px;
     position:relative;
     overflow:hidden;
     
@@ -426,8 +426,8 @@ margin-bottom: 1px;
   #slider-wrap ul#slider li{
     float:left;
     position:relative;
-    width:450px;
-    height:400px; 
+    width:500px;
+    height:500px; 
   }
   
   #slider-wrap ul#slider li > div{
@@ -493,7 +493,7 @@ margin-bottom: 1px;
   /*bar*/
   #pagination-wrap{
     min-width:20px;
-    margin-top:350px;
+    margin-top:470px;
     margin-left: auto; 
     margin-right: auto;
     height:15px;
@@ -532,12 +532,6 @@ margin-bottom: 1px;
   
   /*Header*/
   *{margin:0; padding:0; list-style:none;}
-  a{text-decoration:none; color:#666;}
-  a:hover{color:#1bc1a3;}
-  body, hmtl{background: #ecf0f1; font-family: 'Anton', sans-serif;}
-  
-  
-  
   
   /*ANIMATION*/
   #slider-wrap ul, #pagination-wrap ul li{

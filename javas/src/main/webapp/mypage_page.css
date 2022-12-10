@@ -1,8 +1,7 @@
-@font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css");
+
+*{
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 html {
@@ -104,169 +103,11 @@ a {
 
 main {
     display: flex;
-    height: auto;
+    height: calc(100vh - 60px);
     padding-bottom: 110px;
     background-color: white;
     justify-content: center;
     align-items: center;
-}
-
-.container{
-    display: grid;
-    grid-template-columns: 450px 300px;
-    grid-template-rows: 450px;
-    grid-gap: 1rem;
-    grid-template-areas: 
-    'photo_album calender';
-
-    padding: 10px;
-    height: calc(400px + 1rem);
-}
-
-.container h2{
-    font-size: 20px;
-    margin: 10px 10px;
-}
-
-.photo_album{
-    grid-area: photo_album;
-    background-color: #217af4;
-    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
-    border-radius: 10px;
-}
-
-.photo_album > h2{
-    background-color: #217af4;
-}
-
-.photo_slide{
-    width: 100%;
-    height: 400px;
-    background-color: white;
-}
-
-.calender{
-    grid-area: calender;
-    background-color: white;
-    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
-    position: relative;
-    border-radius: 10px;
-    min-width: 250px;
-}
-
-#mini_calender{
-    display: block;
-    background-color: white;
-    width: calc(100% -20px);
-    height: calc(70% - 10px);
-    margin: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
-
-.rap{
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .25rem .5rem;
-    margin: 0 auto;
-    --start: 15%;
-      
-    height: 40px;
-}
-
-.header > h2{
-    display: inline-block;
-}
-
-
-.dateHead div {
-    background: #217af4;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: .4rem;
-}
-
-.grid {
-display: grid;
-grid-template-columns: repeat(7, 1fr);
-grid-gap: 5px;
-}
-
-.grid > div {
-font-size: .6rem;
-}
-
-.dateBoard > div {
-font-weight: bold;
-min-height: 2.5rem;
-border-radius: 5px;
-border: 1px solid #eee;
-}
-
-.noColor {
-background: #eee;
-}
-
-.date{
-color: #222;
-cursor: pointer;
-overflow: hidden;
-}
-
-.date > P{
-padding: 0 0 .2rem .1rem;
-margin-top: .2rem;
-margin-bottom: 0;
-}
-
-.date:hover{
-background-color: #C6E6F9;
-}
-
-.today{
-color: red;
-}
-
-/* 달력에 일정 마크 */
-.mark_container{
-display: flex;
-justify-content: flex-start;
-align-items: center;
-width: 100%;
-}
-
-.calender_mark{
-height: 5px;
-font-size: xx-small;
-display: block;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
--webkit-line-clamp: 1;
-/* background-color: #217af4; */
-color: white;
-border-radius: 2px;
-margin-bottom: 1px;
-}
-
-#this_week{
-    display: block;
-    background-color: white;
-    width: calc(100% -20px);
-    height: calc(30% - 10px);
-    border-top: 2px white solid;
-    border-radius: 0 0 10px 10px;
-}
-
-#this_week > h5{
-    margin: 5px;
 }
 
 footer {
@@ -284,7 +125,6 @@ footer {
 
 footer > p:first-child{
     font-size: 15px;
-
 }
 
 footer > p{
@@ -297,13 +137,43 @@ footer > p{
 
 .myInfoBox {
 	width: 800px;
-    height: 5000px;
     margin: 5px;
     color: black;
-    font-size: 22px;
     text-align: center;
     position: relative;
-    background-color: pink;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score_board{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+    font-size: 18px;
+}
+
+#modify_button{
+    background-color: #217af4;
+    line-height: 30px;
+    border-radius: 6px;
+    color: white;
+    margin-bottom: 40px;
+    padding: 5px 10px;
+}
+
+.level_clear{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    column-gap: 14px;
+}
+
+.level_clear > p{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .player-content {
@@ -311,13 +181,11 @@ footer > p{
     flex-direction: column;
     width: 820px;
     padding: 10px;
-    border: 1px solid lightgray;
     border-radius: 10px;
     margin:5px;
-    background-color:SEASHELL;
     align-items: center;
     justify-content: center;
-    font-family: 'LINESeedKR-Bd';
+    font-weight: 600;
 }
 
 .first-profil {
@@ -327,7 +195,26 @@ footer > p{
     margin-bottom: 10px;
 }
 
+.file_box input[type="submit"]{
+    background-color: #217af4;
+    height: 25px;
+    text-align: center;
+    color: white;
+    border-radius: 6px;
+    border: 0;
+    vertical-align: middle;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.file_box input[type="file"]{
+    cursor: pointer;
+    width: 200px;
+}
+
 .player-name {
-	font-size: 35px;
+	font-size: 25px;
     margin-bottom: 5px;
+    font-weight: 700;
 }

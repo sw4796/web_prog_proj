@@ -9,7 +9,7 @@
 <head>
    <meta charset="UTF-8">
    <title>랭킹</title>
-   <script src="http://code.jquery.com/jquery-latest.min.js"></script>;
+   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
    <link rel="stylesheet" href="ranking_page.css">
 </head>
     <body>

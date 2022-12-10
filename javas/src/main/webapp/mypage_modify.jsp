@@ -66,18 +66,20 @@
 			<div class="player-content">
 				<div class="myInfoBox">
 				<h2>이번 활동 등록하기</h2>
-				<form action="mypage_modify_db.jsp" method="post">
-				하양 클리어 횟수 : <input class="clear_number" type="number" name="white_cnt" value="0" min="-99"><br>
-				노랑 클리어 횟수 : <input class="clear_number" type="number" name="yellow_cnt" value="0" min="-99"><br>
-				주황 클리어 횟수 : <input class="clear_number" type="number" name="orange_cnt" value="0" min="-99"><br>
-				초록 클리어 횟수 : <input class="clear_number" type="number" name="green_cnt" value="0" min="-99"><br>
-				파랑 클리어 횟수 : <input class="clear_number" type="number" name="blue_cnt" value="0" min="-99"><br>
-				빨강 클리어 횟수 : <input class="clear_number" type="number" name="red_cnt" value="0" min="-99"><br>
-				보라 클리어 횟수 : <input class="clear_number" type="number" name="purple_cnt" value="0" min="-99"><br>
-				회색 클리어 횟수 : <input class="clear_number" type="number" name="gray_cnt" value="0" min="-99"><br>
-				갈색 클리어 횟수 : <input class="clear_number" type="number" name="brown_cnt" value="0" min="-99"><br>
-				검정 클리어 횟수 : <input class="clear_number" type="number" name="black_cnt" value="0" min="-99"><br>
-				누락된 출석 횟수 : <input class="clear_number" type="number" name="attendance" value="0" min="-99"><br>
+				<form action="mypage_modify_db.jsp" class="level_update" method="post">
+				<div class="level_clear">
+					<div>⚪ 클리어 횟수 : <input class="clear_number" type="number" name="white_cnt" value="0" min="-99"></div>
+					<div>🟡 클리어 횟수 : <input class="clear_number" type="number" name="yellow_cnt" value="0" min="-99"></div>
+					<div>🟠 클리어 횟수 : <input class="clear_number" type="number" name="orange_cnt" value="0" min="-99"></div>
+					<div>🟢 클리어 횟수 : <input class="clear_number" type="number" name="green_cnt" value="0" min="-99"></div>
+					<div>🔵 클리어 횟수 : <input class="clear_number" type="number" name="blue_cnt" value="0" min="-99"></div>
+					<div>🔴 클리어 횟수 : <input class="clear_number" type="number" name="red_cnt" value="0" min="-99"></div>
+					<div>🟣 클리어 횟수 : <input class="clear_number" type="number" name="purple_cnt" value="0" min="-99"></div>
+					<div>🐘 클리어 횟수 : <input class="clear_number" type="number" name="gray_cnt" value="0" min="-99"></div>
+					<div>🟤 클리어 횟수 : <input class="clear_number" type="number" name="brown_cnt" value="0" min="-99"></div>
+					<div>⚫ 클리어 횟수 : <input class="clear_number" type="number" name="black_cnt" value="0" min="-99"></div>
+					<div>누락된 출석 횟수 : <input class="clear_number" type="number" name="attendance" value="0" min="-99"></div>
+				</div>
 				<input type="submit" value="활동 등록하기">
       			<input type="reset" value="다시쓰기">
 				</form>
