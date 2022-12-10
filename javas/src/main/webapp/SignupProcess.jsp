@@ -68,6 +68,10 @@
           </div>
         </main>
         <footer>
+            <p>천일이CU가는중</p>
+            <p>이시우: swlee4796@naver.com</p>
+            <p>강은중: imgoing02@naver.com</p>
+            <p>김천일: qndldhd1@naver.com</p>
         </footer>
     </div>
 </body>
