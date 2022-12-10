@@ -49,7 +49,8 @@
         	Connection conn=null;
         	Statement stmt=null;
         	ResultSet rs=null;
-        	String sql;
+        	String sql, sql2;
+        	
         	//out.println("insert into member values('"+id+"','"+name+"','"+pw+"',"+Qnum+",'"+Qans+"')");
         	try {
         		Class.forName("com.mysql.jdbc.Driver");
@@ -58,6 +59,8 @@
         		stmt=conn.createStatement();
         		sql="insert into member values('"+id+"','"+name+"','"+pw+"',"+Qnum+",'"+Qans+"')";
         		stmt.executeUpdate(sql);
+        		sql2 = "insert into user_info (user_id, name) value('" + id + "', '" + name + "')";
+                stmt.executeUpdate(sql2);
         	}catch(Exception e){
         		out.println("DB 연동 오류입니다 : "+e.getMessage());
         	}
