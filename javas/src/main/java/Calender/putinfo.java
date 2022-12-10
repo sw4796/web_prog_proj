@@ -88,7 +88,7 @@ public class putinfo extends HttpServlet {
 			sql_insert = "insert into participation ( user_id, act_id, name ) values('"+writer+"'," + act_id + ",'"+name+"')";
 			stmt.executeUpdate(sql_insert); 
 			
-			response.sendRedirect("calender.html");
+			response.sendRedirect("calender.jsp");
 			
 			stmt.close();
 			conn.close();
