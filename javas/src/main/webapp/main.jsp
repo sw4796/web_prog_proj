@@ -30,7 +30,7 @@
                 <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
             </div>
             <ul class="navbar_menu">
-                <li><a href="">자바쓰 소개</a></li>
+                <li><a href="intro.jsp">자바쓰 소개</a></li>
                 <li><a href="calender.jsp">스케줄</a></li>
                 <li><a href="ranking.jsp">랭킹</a></li>
             </ul>
