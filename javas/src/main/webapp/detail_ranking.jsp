@@ -87,7 +87,6 @@
 						<div class=outer-circle>
     					</div>
 						<div class="pie_wrap">
-    						<!-- 원형 그래프 -->
     						<div class="pie_res">
         						<svg class="pie">
             						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
@@ -111,72 +110,297 @@
 				else if (level.equals("갈색")) {
 			%>
 					<div class="climbing-level color-brown">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
 				else if (level.equals("회색")) {
 			%>
 					<div class="climbing-level color-gray">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
 				else if (level.equals("보라")) {
 			%>
 					<div class="climbing-level color-purple">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
 				else if (level.equals("빨강")) {
 			%>
 					<div class="climbing-level color-red">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
 				else if (level.equals("파랑")) {
 			%>
 					<div class="climbing-level color-blue">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
 				else if (level.equals("초록")) {
 			%>
 					<div class="climbing-level color-green">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
 				else if (level.equals("주황")) {
 			%>
 					<div class="climbing-level color-orange">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
 				else if (level.equals("노랑")) {
 			%>
 					<div class="climbing-level color-yellow">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
 				else if (level.equals("하양")) {
 			%>
 					<div class="climbing-level color-white">
-						<div class="climbing-font">이름 : <%= rs.getString("name") %></div>
-						<div class="climbing-font">등수 : <%= rs.getString("ranking") %>등</div>
+						<div class="rank-part"><%= rs.getString("ranking") %>등 </div>
+						<div class="name-part"><%= rs.getString("name") %></div>
+						<div class="score-part">
+							<div class="climbing-font">평점 : <%= Integer.parseInt(rs.getString("total_attendance")) + Integer.parseInt(rs.getString("total_clear")) %></div>
+							<div class="climbing-font">누적 출석 횟수 : <%= rs.getString("total_attendance") %></div>
+                            <div class="climbing-font">누적 등반 횟수 : <%= rs.getString("total_clear") %></div>
+						</div>
+						<div class=outer-circle>
+    					</div>
+						<div class="pie_wrap">
+    						<div class="pie_res">
+        						<svg class="pie">
+            						<circle idx='0' data-percent="<%= 100 * Float.parseFloat(rs.getString("white_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='1' data-percent="<%= 100 * Float.parseFloat(rs.getString("yellow_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='2' data-percent="<%= 100 * Float.parseFloat(rs.getString("orange_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='3' data-percent="<%= 100 * Float.parseFloat(rs.getString("green_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='4' data-percent="<%= 100 * Float.parseFloat(rs.getString("blue_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='5' data-percent="<%= 100 * Float.parseFloat(rs.getString("red_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='6' data-percent="<%= 100 * Float.parseFloat(rs.getString("purple_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='7' data-percent="<%= 100 * Float.parseFloat(rs.getString("gray_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='8' data-percent="<%= 100 * Float.parseFloat(rs.getString("brown_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+            						<circle idx='9' data-percent="<%= 100 * Float.parseFloat(rs.getString("black_clear")) / Float.parseFloat(rs.getString("total_clear"))%>" />
+        						</svg>
+    						</div>
+						</div>
+						<div class=inner-circle>
+    					</div>
 					</div>
 			<%
 				}
