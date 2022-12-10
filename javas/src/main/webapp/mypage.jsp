@@ -11,6 +11,14 @@
 	<link rel="stylesheet" href="mypage_page.css">
 </head>
 <body>
+<script type="text/javascript">
+function checkSize(input) {
+    if (input.files && input.files[0].size > (10 * 1024 * 1024)) {
+        alert("파일 사이즈가 10mb 를 넘습니다.");
+        input.value = null;
+    }
+}
+</script>
 <%
 	//인증된 세션인지 확인
 	boolean login = true;
@@ -48,8 +56,8 @@
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-			conn = DriverManager.getConnection(url, "root", "0000");
+			String jdbcurl = "jdbc:mysql://localhost/javasclimbing?serverTimezone=UTC";
+			conn = DriverManager.getConnection(jdbcurl,"javasclimbing","javas!21!");
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			String sql = "select * from user_info where user_id='" + id + "'";
 			rs = stmt.executeQuery(sql);
@@ -68,7 +76,7 @@
         			<br><br>
         			<img class="first-profil" src="image/<%= rs.getString("image") %>" alt="profil">
 					<form action="imageUpload.jsp" method="post" enctype="multipart/form-data" class="file_box">
-						<input type="file" name="uploadfiles"><br> 
+						<input type="file" name="uploadfiles" onchange="checkSize(this)"><br> 
 						<input type="submit" value="사진 수정하기">
 					</form>
 					<div class="player-name"><%= rs.getString("name") %> 님의 마이페이지</div>

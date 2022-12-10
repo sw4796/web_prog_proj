@@ -46,8 +46,8 @@ public class getPW extends HttpServlet {
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-			conn=DriverManager.getConnection(jdbcurl, "root", "0000");
+			String jdbcurl = "jdbc:mysql://localhost/javasclimbing?serverTimezone=UTC";
+			conn = DriverManager.getConnection(jdbcurl,"javasclimbing","javas!21!");
 			stmt=conn.createStatement();
 			String sql="select * from member where user_id='"+id+"'";
 			rs=stmt.executeQuery(sql);

@@ -51,8 +51,8 @@
 	
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				String url = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-				conn = DriverManager.getConnection(url, "root", "0000");
+				String jdbcurl = "jdbc:mysql://localhost/javasclimbing?serverTimezone=UTC";
+				conn = DriverManager.getConnection(jdbcurl,"javasclimbing","javas!21!");
 				stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 				String sql = "select *, row_number() over(order by total_attendance + total_clear desc) as ranking from user_info where level='" + level + "'";
 				rs = stmt.executeQuery(sql);

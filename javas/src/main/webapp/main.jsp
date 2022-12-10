@@ -442,14 +442,14 @@
 		                	
 		                		try {
 		                			Class.forName("com.mysql.jdbc.Driver");
-		                			String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-		                			conn = DriverManager.getConnection(jdbcurl,"root","0000");
+		                			String jdbcurl = "jdbc:mysql://localhost/javasclimbing?serverTimezone=UTC";
+		                			conn = DriverManager.getConnection(jdbcurl,"javasclimbing","javas!21!");
 		                			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 		                		            ResultSet.CONCUR_UPDATABLE);
 		                			
 		                			
 		                			//현재 date 일주일안의 활동 3개 가져오기
-		                			String sql = "SELECT * FROM activity WHERE date BETWEEN DATE_ADD(NOW(), INTERVAL +1 WEEK ) and NOW() order by date asc, time asc limit 5";
+		                			String sql = "SELECT * FROM activity WHERE date BETWEEN date_add(now(), interval -1 day ) and DATE_ADD(NOW(), INTERVAL +1 WEEK ) order by date asc, time asc limit 5;";
 		                			rs = stmt.executeQuery(sql);
 		                			
 		                			rs.last();
