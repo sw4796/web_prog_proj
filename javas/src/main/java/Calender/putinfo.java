@@ -1,6 +1,7 @@
 package Calender;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -37,6 +38,7 @@ public class putinfo extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		request.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
 		
 		HttpSession session=request.getSession();
 		String user_id = (String)session.getAttribute("id");
@@ -69,13 +71,13 @@ public class putinfo extends HttpServlet {
 			String location = request.getParameter("location");
 			String time = request.getParameter("time");
 			String date = request.getParameter("date");
-			String number = request.getParameter("number");
+			int number = Integer.parseInt(request.getParameter("number"));
 			String description = request.getParameter("description");
 			String writer = user_id;
 			String color = request.getParameter("color");
 	
-			String sql_insert = "insert into activity values(" + act_id + ",'" + location + "','" + time + "','" + date + "','"
-					+ number + "','" + description + "','" + writer + "','" + color +"')";
+			String sql_insert = "insert into activity values(" + act_id + ",'" + location + "','" + time + "','" + date + "',"
+					+ number + ",'" + description + "','" + writer + "','" + color +"')";
 	
 			System.out.println(sql_insert);
 			
@@ -83,7 +85,7 @@ public class putinfo extends HttpServlet {
 			stmt.executeUpdate(sql_insert); 
 			
 			//활동 DB에 주최자 추가하기
-			sql_insert = "insert into participation values('"+writer+"'," + act_id + ",'"+name+"')";
+			sql_insert = "insert into participation ( user_id, act_id, name ) values('"+writer+"'," + act_id + ",'"+name+"')";
 			stmt.executeUpdate(sql_insert); 
 			
 			response.sendRedirect("calender.html");
@@ -92,7 +94,9 @@ public class putinfo extends HttpServlet {
 			conn.close();
 		}
 		catch(Exception e) {
-			System.out.println("max_id: DB 연동 오류입니다. :" + e.getMessage());
+			System.out.println("putinfo: DB 연동 오류입니다. :" + e.getMessage());
+			out.println("<script>alert('error: 활동 동록에 error가 발생했습니다.')</script>");
+			out.println("<script>location.href='main.jsp'</script>");
 		}
 	}
 

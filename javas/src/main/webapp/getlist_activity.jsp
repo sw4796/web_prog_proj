@@ -46,18 +46,26 @@
 			stmt_list = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 		            ResultSet.CONCUR_UPDATABLE);
 			//date와 일치하는 활동 list 추출해오기
-			String sql_list = "select * from activity where date='" + date + "' order by time asc";
+			String sql_list = "select act.*, mem.name from activity act, member mem where date='" + date  +"' and act.writer = mem.user_id order by time asc";
 			rs_list = stmt_list.executeQuery(sql_list);
 			
 			rs_list.last();
 			//아무 활동도 없는 경우
 			if(rs_list.getRow() == 0){
-				%>
-				<div class="empty_list">
-                	예정된 활동이 없습니다.<br>
-                	직접 활동을 추가해 보세요!
-                </div>
-				<%
+				if(date_compare < 0){ //이미 지난 경우
+					%>
+					<div class="empty_list">
+	                	<br>이 날짜에는 활동을 하지 않았습니다!
+	                </div>
+					<%
+				}else{ // 안 지난 경우
+					%>
+					<div class="empty_list">
+	                	예정된 활동이 없습니다.<br>
+	                	직접 활동을 추가해 보세요!
+	                </div>
+					<%
+				}
 			}
 			rs_list.beforeFirst();
 			
@@ -65,9 +73,14 @@
 			while(rs_list.next()){
 				System.out.println(rs_list.getString("location"));
 				//해당 활동의 참여멤버 추출하기
-					stmt_member = conn.createStatement();
+					stmt_member = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+				            ResultSet.CONCUR_UPDATABLE);
 					String sql_member = "select * from participation where act_id=" + rs_list.getInt("act_id") + " order by timestamp";
 					rs_member = stmt_member.executeQuery(sql_member);
+					
+					rs_member.last();
+					int row = rs_member.getRow();
+					rs_member.beforeFirst();
 
 				%>
 				<li class="activity">
@@ -75,9 +88,9 @@
 		                <p class="activity_time"><%=rs_list.getString("time").substring(0,5) %></p>
 		                <div class="activity_title">
 		                    <h3 class="activity_location"><%=rs_list.getString("location") %></h3>
-		                    <p class="writer">주최자:<%=rs_list.getString("writer") %></p>
+		                    <p class="writer">주최자:<%=rs_list.getString("name") %></p>
 		                </div>
-		                <p class="activity_people"><%=rs_member.getRow() %>/<%=rs_list.getInt("max_member") %></p>
+		                <p class="activity_people"><%=row %>/<%=rs_list.getInt("max_member") %></p>
 		            </div>
 		            <div class="activity_info hidden" style="border-left: 10px solid <%=rs_list.getString("color")%>">
 		                <div class="description">
