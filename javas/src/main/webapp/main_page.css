@@ -103,7 +103,7 @@ a {
 
 main {
     display: flex;
-    height: calc(100vh + 200px);
+    height: calc(110vh);
     padding-bottom: 110px;
     background-color: white;
     justify-content: center;
@@ -230,7 +230,7 @@ background-color: #C6E6F9;
 }
 
 .today{
-color: red;
+color: #217af4;
 }
 
 /* 달력에 일정 마크 */
@@ -265,20 +265,48 @@ margin-bottom: 1px;
 
 #this_week > h5{
     margin: 5px;
+    margin-bottom: 10px;
 }
 
 .empty_list{
     color: 	#818181;
     font-size: 16px;
+    margin-left: 30px;
+    margin-top: 25px;
+    display: inline-block;
 }
 
-.activity{
+.activity_summary{
+    margin-left: 15px;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.activity_summary > div:nth-child(3){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 150px;
+}
+
+.activity_summary > div{
+    margin-left: 10px;
+}
+
+.activity_summary > div:first-child{
+    margin-left: 2px;
+}
+
+/* .activity{
     height: calc(100% - 16px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-}
+} */
 
 footer {
     width: 100%;
