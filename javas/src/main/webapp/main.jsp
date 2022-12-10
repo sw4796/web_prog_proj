@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +10,12 @@
 </head>
 
 <body>
+<%
+	//인증된 세션인지 확인
+	boolean login = true;
+	if(session.getAttribute("id")==null)
+		login = false;
+%>
     <div id="wrap">
         <div class="animation">
         </div>
@@ -17,7 +25,7 @@
             </div>
             <ul class="navbar_menu">
                 <li><a href="">소개</a></li>
-                <li><a href="calender.html">스케줄</a></li>
+                <li><a href="calender.jsp">스케줄</a></li>
                 <li>
                     <a href="">커뮤니티</a>
                     <ul>
@@ -28,8 +36,12 @@
                 <li><a href="ranking.html">랭킹</a></li>
             </ul>
             <ul class="navbar_sign">
-                <li><a href="login.html">로그인</a></li>
-                <li><a href="signup.html">회원가입</a></li>
+            <%if(login){ //로그인 여부에 따라 바뀌기%>
+        		<li><a href="#">마이페이지</a></li>
+        		<li><a href="#">로그아웃</a></li>
+            <%} else{%>
+                <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
+            <%} %>
             </ul>
         </nav>
         <main>

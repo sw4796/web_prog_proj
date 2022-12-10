@@ -9,6 +9,7 @@
   <head>
     <link rel="stylesheet" href="LoginSignup_page.css" />
     <script src="LoginSignup.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>;
   </head>
   <body>
     <div id="wrap">
@@ -50,7 +51,7 @@
           </div>
 
           <div class="form-container sign-in-container">
-            <form class="login_form" id="login" action="main.jsp" method="post">
+            <form class="login_form" id="login" action="LoginCheck" method="post">
               <h1>Log In</h1>
               <br />
               <input type="text" id="login_id" name="login_id" placeholder="Email" />
@@ -59,7 +60,7 @@
                 <span class="login_option_background"><input type="checkbox" />로그인 유지</span>
                 <span class="login_option_background"><a href="findIDPW.jsp">비밀번호 찾기</a></span>
               </div>
-              <br /><input type="button" class="login_button" id="login_button" onclick="loginCheck()" value="로그인" />
+              <br /><input type="submit" class="login_button" id="login_button" value="로그인" />
             </form>
           </div>
           <div class="overlay-container">
@@ -80,98 +81,6 @@
       </main>
       <footer></footer>
     </div>
-<%!
-Connection conn = null;
-Statement stmt = null;
-ResultSet rs = null;
-StringBuffer values=new StringBuffer();
-StringBuffer pws=new StringBuffer();
-%>
-<%
-try
-{
-	Class.forName("com.mysql.jdbc.Driver");
-	String jdbcurl = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-	conn=DriverManager.getConnection(jdbcurl, "root", "0000");
-	stmt=conn.createStatement();
-	String sql="select * from member";
-	rs=stmt.executeQuery(sql);
-}
-catch(Exception e)
-{
-	out.println("<script>alert('db 연동 오류입니다 : '+e.getMessage);</script>");
-}
-
-while(rs.next())
-{
-	if(values.length()>0)
-	{
-		values.append(',');
-		pws.append(',');
-	}
-	values.append('\'').append(rs.getString("id")).append('\'');
-	pws.append('\'').append(rs.getString("pw")).append('\'');
-}
-stmt.close();
-conn.close();
-%>
-	<script type="text/javascript">
-	
-	let idcheck=document.getElementById("idcheck");
-	function idCheck()
-	{
-		let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
-		let id_list=[<%=values.toString()%>];
-		let id=document.getElementById("id").value;
-		//for(var i=0;i<id_list.length;i++)
-			//console.log(id_list[i]);
-		if(id=="")
-		{
-			alert("이메일을 입력해주세요.");
-			return;
-		}
-		if(regex.test(id)===false)
-		{
-			alert("이메일 형식으로 입력하세요");
-			return;
-		}
-		
-		if(!id_list.includes(id))
-		{
-			alert("사용 가능한 이메일입니다.");
-			idcheck.className="check";
-		}
-		else
-		{
-			alert("이미 사용중인 이메일입니다.");
-			idcheck.className="uncheck";
-		}
-	}
-	
-	function loginCheck() {
-		let id_list=[<%=values.toString()%>];
-		let pw_list=[<%=pws.toString()%>];
-		let id=document.getElementById("login_id").value;
-		let pw=document.getElementById("login_pw").value;
-		let idIndex=id_list.indexOf(id);
-		
-		if(!id_list.includes(id))
-		{
-			alert("입력하신 이메일에 해당하는 회원정보가 존재하지 않습니다.");
-		}
-		else
-		{
-			if(pw!=pw_list[idIndex])
-			{
-				alert("비밀번호가 일치하지 않습니다.");
-			}
-			else
-			{
-				document.getElementById("login").submit();
-			}
-		}
-	}
-  </script>
   </body>  
 </html>
 
