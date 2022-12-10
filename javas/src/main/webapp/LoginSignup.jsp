@@ -20,23 +20,23 @@
     %>
     <div id="wrap">
       <nav class="navbar">
-        <div class="navbar_logo">
-            <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
-        </div>
-        <ul class="navbar_menu">
-            <li><a href="">About Javas</a></li>
-            <li><a href="calender.jsp">Calender</a></li>
-            <li><a href="ranking.html">Ranking</a></li>
-        </ul>
-        <ul class="navbar_sign">
-        <%if(login){ //로그인 여부에 따라 바뀌기%>
-        <li><a href="#">마이페이지</a></li>
-        <li><a href="#">로그아웃</a></li>
-        <%} else{%>
-            <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
-        <%} %>
-        </ul>
-    </nav>
+            <div class="navbar_logo">
+                <img src="image/javas_logo.svg" onclick="location.href='main.jsp'">
+            </div>
+            <ul class="navbar_menu">
+                <li><a href="intro.jsp">자바쓰 소개</a></li>
+                <li><a href="calender.jsp">스케줄</a></li>
+                <li><a href="ranking.jsp">랭킹</a></li>
+            </ul>
+            <ul class="navbar_sign">
+            <%if(login){ //로그인 여부에 따라 바뀌기%>
+        		<li><a href="mypage.jsp">마이페이지</a></li>
+        		<li><a href="logout.jsp">로그아웃</a></li>
+            <%} else{%>
+                <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
+            <%} %>
+            </ul>
+        </nav>
       <main>
         <div class="container" id="container">
           <div class="form-container sign-up-container">
