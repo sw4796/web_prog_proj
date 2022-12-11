@@ -30,22 +30,24 @@
           green_clear = { 0, 0, 0 }, orange_clear = { 0, 0, 0 },
           yellow_clear = { 0, 0, 0 }, white_clear = { 0, 0, 0 };
     String max_attendance_name = "<공석>", max_clear_name = "<공석>", max_attendance_level = "<미정>", max_clear_level = "<미정>";
+    String max_attendance_image = "basic-profil.jpeg"; 
+    String max_clear_image = "basic-profil.jpeg";
     int max_attendance = 0, max_clear = 0;
     Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-	
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		String url = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-		conn = DriverManager.getConnection(url, "root", "0000");
-		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-		String sql = "select *, row_number() over(partition by level order by total_attendance + total_clear desc) as ranking from user_info";
-		rs = stmt.executeQuery(sql);
-	}
-	catch(Exception e) {
-		   out.println("DB 연동 오류입니다.:" + e.getMessage());
-	}
+   Statement stmt = null;
+   ResultSet rs = null;
+   
+   try {
+      Class.forName("com.mysql.jdbc.Driver");
+      String jdbcurl = "jdbc:mysql://localhost/javasclimbing?serverTimezone=UTC";
+		conn = DriverManager.getConnection(jdbcurl,"javasclimbing","javas!21!");
+      stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+      String sql = "select *, row_number() over(partition by level order by total_attendance + total_clear desc) as ranking from user_info";
+      rs = stmt.executeQuery(sql);
+   }
+   catch(Exception e) {
+         out.println("DB 연동 오류입니다.:" + e.getMessage());
+   }
     
    rs.last();
    rs.beforeFirst();
