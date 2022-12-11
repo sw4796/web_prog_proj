@@ -21,7 +21,7 @@
 %>
 <%
 
-    int fileSize = 1024 * 1024 * 3; //3mb로 파일 크기를 제한
+    int fileSize = 1024 * 1024 * 10; //3mb로 파일 크기를 제한
     String image = "";
     String originFile = "";
     String uploadPath = request.getRealPath("image");
@@ -49,8 +49,8 @@
 	
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		String url = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-		conn = DriverManager.getConnection(url, "root", "0000");
+		String jdbcurl = "jdbc:mysql://localhost/javasclimbing?serverTimezone=UTC";
+		conn = DriverManager.getConnection(jdbcurl,"javasclimbing","javas!21!");
 		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		String sql = "select * from user_info where user_id = '" + id + "'";
 		rs = stmt.executeQuery(sql);

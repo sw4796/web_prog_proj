@@ -23,7 +23,8 @@ function mk_calender_mark(){
         }
         },
         error: function(e){
-        alert("get_calender_mark: ajax_error");
+          alert("get_calender_mark: ajax_error");
+          location.href="main.jsp";
         }
     });
 }

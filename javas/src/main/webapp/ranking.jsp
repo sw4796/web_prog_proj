@@ -9,7 +9,7 @@
 <head>
    <meta charset="UTF-8">
    <title>랭킹</title>
-   <script src="http://code.jquery.com/jquery-latest.min.js"></script>;
+   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
    <link rel="stylesheet" href="ranking_page.css">
 </head>
     <body>
@@ -30,24 +30,22 @@
           green_clear = { 0, 0, 0 }, orange_clear = { 0, 0, 0 },
           yellow_clear = { 0, 0, 0 }, white_clear = { 0, 0, 0 };
     String max_attendance_name = "<공석>", max_clear_name = "<공석>", max_attendance_level = "<미정>", max_clear_level = "<미정>";
-    String max_attendance_image = ""; 
-    String max_clear_image = "";
     int max_attendance = 0, max_clear = 0;
     Connection conn = null;
-   Statement stmt = null;
-   ResultSet rs = null;
-   
-   try {
-      Class.forName("com.mysql.jdbc.Driver");
-      String url = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
-      conn = DriverManager.getConnection(url, "root", "0000");
-      stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-      String sql = "select *, row_number() over(partition by level order by total_attendance + total_clear desc) as ranking from user_info";
-      rs = stmt.executeQuery(sql);
-   }
-   catch(Exception e) {
-         out.println("DB 연동 오류입니다.:" + e.getMessage());
-   }
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/javas?serverTimezone=UTC";
+		conn = DriverManager.getConnection(url, "root", "0000");
+		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		String sql = "select *, row_number() over(partition by level order by total_attendance + total_clear desc) as ranking from user_info";
+		rs = stmt.executeQuery(sql);
+	}
+	catch(Exception e) {
+		   out.println("DB 연동 오류입니다.:" + e.getMessage());
+	}
     
    rs.last();
    rs.beforeFirst();
@@ -238,10 +236,10 @@
    }
     %>
     <%
-	//인증된 세션인지 확인
-	boolean login = true;
-	if(session.getAttribute("id")==null)
-		login = false;
+   //인증된 세션인지 확인
+   boolean login = true;
+   if(session.getAttribute("id")==null)
+      login = false;
 %>
         <div id="wrap">
             <nav class="navbar">
@@ -255,8 +253,8 @@
             </ul>
             <ul class="navbar_sign">
             <%if(login){ //로그인 여부에 따라 바뀌기%>
-        		<li><a href="mypage.jsp">마이페이지</a></li>
-        		<li><a href="logout.jsp">로그아웃</a></li>
+              <li><a href="mypage.jsp">마이페이지</a></li>
+              <li><a href="logout.jsp">로그아웃</a></li>
             <%} else{%>
                 <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
             <%} %>
@@ -269,7 +267,7 @@
                         <div class="wrapper">
                             <div class="slider">
                                 <img class="medal" src="image/first-medal.png" alt="first medal">
-                                <span>출석왕</span>
+                                <h2>출석왕</h2>
                                 <img class="medal" src="image/first-medal.png" alt="first medal"><br>
                                 <img class="first-profil" src="image/<%= max_attendance_image %>" alt="profil">
                                 <div class="player-name"><%= max_attendance_name %></div>
@@ -278,7 +276,7 @@
                             </div>
                             <div class="slider">
                                 <img class="medal" src="image/first-medal.png" alt="first medal">
-                                <span>등반왕</span>
+                                <h2>등반왕</h2>
                                 <img class="medal" src="image/first-medal.png" alt="first medal"><br>
                                 <img class="first-profil" src="image/<%= max_clear_image %>" alt="profil">
                                 <div class="player-name"><%= max_clear_name %></div>
@@ -291,8 +289,8 @@
                             <span idx='2' class="bullet"></span>
                         </div>
                     </div>
-                    <div class="climbing-level color-black">
-                        <div class="climbing-label">검정 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-black">검정 클라이머
                             <a class="more" href="detail_ranking.jsp?level=검정">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -316,8 +314,8 @@
                             <div class="climbing-font">평점 : <%= black_attendance[2] + black_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-brown">
-                        <div class="climbing-label">갈색 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-brown">갈색 클라이머
                             <a class="more" href="detail_ranking.jsp?level=갈색">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -341,8 +339,8 @@
                             <div class="climbing-font">평점 : <%= brown_attendance[2] + brown_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-gray">
-                        <div class="climbing-label">회색 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-gray">회색 클라이머
                             <a class="more" href="detail_ranking.jsp?level=회색">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -366,8 +364,8 @@
                             <div class="climbing-font">평점 : <%= gray_attendance[2] + gray_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-purple">
-                        <div class="climbing-label">보라 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-purple">보라 클라이머
                             <a class="more" href="detail_ranking.jsp?level=보라">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -391,8 +389,8 @@
                             <div class="climbing-font">평점 : <%= purple_attendance[2] + purple_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-red">
-                        <div class="climbing-label">빨강 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-red">빨강 클라이머
                             <a class="more" href="detail_ranking.jsp?level=빨강">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -416,8 +414,8 @@
                             <div class="climbing-font">평점 : <%= red_attendance[2] + red_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-blue">
-                        <div class="climbing-label">파랑 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-blue">파랑 클라이머
                             <a class="more" href="detail_ranking.jsp?level=파랑">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -441,8 +439,8 @@
                             <div class="climbing-font">평점 : <%= blue_attendance[2] + blue_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-green">
-                        <div class="climbing-label">초록 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-green">초록 클라이머
                             <a class="more" href="detail_ranking.jsp?level=초록">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -466,8 +464,8 @@
                             <div class="climbing-font">평점 : <%= green_attendance[2] + green_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-orange">
-                        <div class="climbing-label">주황 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-orange">주황 클라이머
                             <a class="more" href="detail_ranking.jsp?level=주황">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -491,8 +489,8 @@
                             <div class="climbing-font">평점 : <%= orange_attendance[2] + orange_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-yellow">
-                        <div class="climbing-label">노랑 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-yellow">노랑 클라이머
                             <a class="more" href="detail_ranking.jsp?level=노랑">
                                 <img class="plus" src="image/plus.png">
                             </a>
@@ -516,8 +514,8 @@
                             <div class="climbing-font">평점 : <%= yellow_attendance[2] + yellow_clear[2] %></div>
                         </span>
                     </div>
-                    <div class="climbing-level color-white">
-                        <div class="climbing-label">하양 클라이머
+                    <div class="climbing-level">
+                        <div class="climbing-label color-white">하양 클라이머
                             <a class="more" href="detail_ranking.jsp?level=하양">
                                 <img class="plus" src="image/plus.png">
                             </a>
