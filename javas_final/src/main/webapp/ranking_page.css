@@ -1,0 +1,333 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css");
+
+*{
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    min-width: 680px;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    height: auto;
+    padding-bottom: calc(110px + 60px);
+    padding-top: 60px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 0px 12px;
+    position: sticky;
+    top: 0px;
+    height: 60px;
+    z-index: 10;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+    font-weight: 600;
+  }
+  
+  .navbar_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+  }
+  
+  .navbar_logo img{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .navbar_menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .navbar_menu li {
+    position: relative;
+    width: auto;
+    line-height: 37.6px;
+  }
+  
+  .navbar_menu li a {
+    padding: 8px 24px;
+  }
+  
+  .navbar_menu li a:hover {
+    background-color: #C6E6F9;
+    border-radius: 4px;
+  }
+  
+  .navbar_sign {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    margin-right: 20px;
+  }
+  
+  .navbar_sign li a{
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .navbar_sign li a:hover {
+    background-color: #C6E6F9;
+    border-radius: 4px;
+  }
+
+footer {
+    width: 100%;
+    height: 110px;
+    bottom: 0px;
+    position: absolute;
+    background-color: #f1f4f7;
+    /* border-top: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+footer > p:first-child{
+    font-size: 15px;
+}
+
+footer > p{
+    margin: 2px;
+    margin-left: 25px;
+    font-size: 8px;
+    text-align: center;
+    color: #222222;   
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: 
+    'QnA calender'
+    'info calender';
+
+    width: 60%;
+    padding: 10px;
+    height: 50vh;
+    background-color: #6BBAE8;
+}
+
+.player-content {
+    display: flex;
+    flex-direction: column;
+    width: 820px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:white;
+    align-items: center;
+    justify-content: center;
+    font-family: 'LINESeedKR-Bd';
+}
+
+.swiper {
+	display: table; 
+	position: relative;
+	width: 800px;
+    height: 440px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.slider * {
+    vertical-align: middle;
+}
+
+.wrapper { 
+	display: table; 
+	position: absolute;
+	width: 1600px;
+	transition: all .8s ease;
+}
+
+.wrapper .slider {
+	display: table-cell;
+	width: 800px;
+    height: 440px;
+    margin: 5px;
+    color: white;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    background-color: silver;
+}
+
+.slider > h2{
+    display: inline-block;
+    color: #FFCD0D;
+    margin: 0;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.pagination { 
+	position: absolute; 
+	text-align:center;
+	bottom: 10px; 
+	width: 100%
+}
+
+.pagination .bullet {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: #fff;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	margin: 0 2px;
+	cursor: pointer;
+}
+
+.pagination .bullet.active {
+	background-color: #ff822e;
+}
+
+.medal {
+    margin: 10px auto 10px auto;
+}
+
+.trophy {
+    margin: 10px auto auto auto;
+}
+
+.first-profil {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.player-name {
+    margin-bottom: 5px;
+}
+
+.small-font {
+    font-size: 25px;
+}
+
+.climbing-level {
+    width: 800px;
+    height: 200px;
+    margin: 5px;
+    color: black;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+    background-color: white;
+}
+
+.color-black {
+    background-color: black;
+    color: white;
+}
+
+.color-brown {
+    background-color: #804000;
+    color: white;
+}
+
+.color-gray {
+    background-color: gray;
+    color: white;
+}
+
+.color-purple {
+    background-color: #B117F4;
+    color: white;
+}
+
+.color-red {
+    background-color: #FF1F0D;
+    color: white;
+}
+
+.color-blue {
+    background-color: #217af4;
+}
+
+.color-green {
+    background-color: green;
+}
+
+.color-orange {
+    background-color: #FFA40D;
+}
+
+.color-yellow {
+    background-color: #FFCD0D;
+}
+
+.color-white {
+    background-color: white;
+}
+
+.climbing-level .climbing-label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px 10px 0 0;
+}
+
+.climbing-level .climbing-font {
+    font-size: 20px;
+}
+
+.climbing-level .silver {
+    float: left;
+    width:30%;
+}
+
+.climbing-level .gold {
+    float: left;
+    margin-left: 5%;
+    width:30%;
+}
+
+.climbing-level .bronze {
+    float: right;
+    width:30%;
+}
+
+.more {
+    background-color: #f2f2f2;
+    width: 24px;    
+    height: 24px;
+    border-radius: 12px;
+    position: absolute;
+    right: 8px;
+    top: 6px;
+}

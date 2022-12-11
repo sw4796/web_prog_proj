@@ -1,0 +1,787 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css");
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;  
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    min-width: 680px;
+}
+
+body {
+    margin: 0;
+}
+
+#wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0px 12px;
+  position: sticky;
+  top: 0px;
+  height: 60px;
+  z-index: 10;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  font-weight: 600;
+}
+
+.navbar_logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.navbar_logo img{
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.navbar_menu li {
+  position: relative;
+  width: auto;
+  line-height: 37.6px;
+}
+
+.navbar_menu li a {
+  padding: 8px 24px;
+}
+
+.navbar_menu li a:hover {
+  background-color: #C6E6F9;
+  border-radius: 4px;
+}
+
+.navbar_sign {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+  margin-right: 20px;
+}
+
+.navbar_sign li a{
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.navbar_sign li a:hover {
+  background-color: #C6E6F9;
+  border-radius: 4px;
+}
+
+main {
+    display: flex;
+    height: calc(100vh + 110px + 60px + 40px);
+    padding-bottom: 110px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+div{
+  box-sizing: border-box;
+}
+
+/* modal popup */
+
+.modal_register > input{
+  margin-bottom: 10px;
+}
+
+input[type=time] {
+  border: none;
+  color: #2a2c2d;
+  font-size: 13px;
+  font-family: helvetica;
+  font-weight: bold;
+  width: 200px;
+  outline: none;
+}
+
+/* Wrapper around the hour, minute, second, and am/pm fields as well as 
+the up and down buttons and the 'X' button */
+input[type=time]::-webkit-datetime-edit-fields-wrapper {
+  display: flex;
+}
+
+/* The space between the fields - between hour and minute, the minute and 
+second, second and am/pm */
+input[type=time]::-webkit-datetime-edit-text {
+  padding: 15px 4px;
+}
+
+/* The naming convention for the hour, minute, second, and am/pm field is
+`-webkit-datetime-edit-{field}-field` */
+
+/* Hour */
+input[type=time]::-webkit-datetime-edit-hour-field {
+  background-color: #89B2E9;
+  border-radius: 15%;
+  padding: 15px 13px;
+  cursor: pointer;
+}
+
+/* Minute */
+input[type=time]::-webkit-datetime-edit-minute-field {
+  background-color: #89B2E9;
+  border-radius: 15%;
+  padding: 15px 13px;
+  cursor: pointer;
+}
+
+/* AM/PM */
+input[type=time]::-webkit-datetime-edit-ampm-field {
+  background-color: #1835D0;
+  border-radius: 15%;
+  color: #fff;
+  padding: 15px 13px;
+}
+
+/* 'X' button for resetting/clearing time */
+input[type=time]::-webkit-clear-button {
+  display: none;
+}
+
+/* Up/Down arrows for incrementing/decrementing the value */
+input[type=time]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator{
+  cursor: pointer;
+}
+
+.input_form{
+  background-color: #f8f9fa;
+  padding: 20px;
+  padding: 6px 6px;
+  border-radius: 5px;
+  width: 240px;
+  display: inline-block;
+  resize: none;
+}
+
+.input_form:focus {
+  color: #000000;
+  background-color: #ffffff;
+  border: 3px solid #1263CE;
+  outline: none;
+  box-shadow: none;
+}
+
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_overlay{
+  background-color: rgba(0,0,0,0.6);
+  width: 100%; 
+  height: calc(100% + 110px);
+  position: absolute;
+}
+
+.modal_list{
+  background-color: white;
+  width: 440px;
+  height: 540px;
+  text-align: center;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.modal_list.on{
+  animation: mySlide_bottom 0.5s ease-out;
+}
+
+.modal_list.off{
+  animation: mySlide_bottom_out 0.3s ease-out;
+}
+
+.modal_list.left{
+  animation: mySlide_left 0.5s ease-out;
+}
+
+@keyframes mySlide_bottom {
+  from {
+    bottom: -50px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes mySlide_bottom_out {
+  from {
+    bottom: 0px;
+    opacity: 1;
+  }
+  to {
+    bottom: -50px;
+    opacity: 0;
+  }
+}
+
+@keyframes mySlide_left {
+  from {
+    left: -50px;
+    opacity: 0;
+  }
+  to {
+    left: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes mySlide_right_out {
+  from {
+    right: 0px;
+    opacity: 1;
+  }
+  to {
+    right: -50px;
+    opacity: 0;
+  }
+}
+
+.modal_list_header{
+
+    --start: 15%;
+    
+    height: 80px;
+    background-image: repeating-radial-gradient(circle at var(--start), transparent 0%, transparent 10%, rgba(54, 89, 219, .33) 10%, rgba(54, 89, 219, .33) 17%), linear-gradient(to right, #5b7cfa, #3659db);
+    color: #fff;
+    position: relative;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.modal_list_header > h3{
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: calc(var(--start) * .75);
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+#activity_list{
+  background-color: #fff;
+  border-radius: 0 0 12px 12px;
+  padding: 15px 15px 0px;
+  display: grid;
+  row-gap: 8px;
+  overflow: auto;
+  height: calc(540px - 90px - 80px);
+  grid-auto-rows: minmax(min-content, max-content);
+}
+
+#activity_list::-webkit-scrollbar {
+  width: 8px;  /* 스크롤바의 너비 */
+}
+
+#activity_list::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #217af4; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+#activity_list::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+}
+
+.empty_list{
+  color: 	#818181;
+  font-size: 16px;
+  margin-top: calc(140px);
+}
+
+.activity{
+  width: 402px;
+}
+
+.activity_summary{
+  text-align: left;
+  padding: 10px 30px 10px 10px;
+  overflow: hidden;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  cursor: pointer;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-left: 10px solid #1263CE; */
+}
+
+.activity_summary:hover{
+  background-color: #C6E6F9;
+  transition: all 0.2s linear;
+}
+
+.activity_summary > p{
+  display: inline-block;
+  font-weight: bold;
+}
+
+.writer{
+  font-size: 11px;
+  text-align: left;
+}
+
+.activity_title{
+  padding-left: 15px;
+  width: 230px;
+}
+
+.activity_info{
+  height: fit-content;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 0px 0px 10px 10px;
+  /* border-left: 10px solid #1263CE; */
+  /* border-top: 2px solid #1263CE; */
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  background-color: #fff;
+  text-align: left;
+}
+
+.activity_info > div{
+  margin-bottom: 20px;
+}
+
+.activity_info div h4{
+  padding-bottom: 15px;
+}
+
+.member_list{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  row-gap: 8px;
+}
+
+.member_list > div{
+  text-align: center;
+}
+
+.participate_button{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center; /* 가로 - 중앙으로 */
+  justify-content: center; /* 세로 - 상단으로 */
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  width: 100px;
+  margin-top: 0;
+  background-color: #217af4;
+  height: 30px;
+  text-align: center;
+  color: white;
+  line-height: 40px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 0;
+}
+
+.activity_location{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal_list > .btn-container{
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.register_button{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center; /* 가로 - 중앙으로 */
+  justify-content: center; /* 세로 - 상단으로 */
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  width: 160px;
+  margin-top: 0;
+  background-color: #219df3;
+  height: 40px;
+  text-align: center;
+  color: white;
+  line-height: 40px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 0;
+}
+
+.modal_register{
+  background-color: white;
+  padding: 50px 50px 10px 50px;
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  animation: mySlide_right 0.5s ease-out;
+}
+
+.modal_register.off{
+  animation: mySlide_bottom_out 0.3s ease-out;
+}
+
+@keyframes mySlide_right {
+  from {
+    right: -50px;
+    opacity: 0;
+  }
+  to {
+    right: 0px;
+    opacity: 1;
+  }
+}
+
+.modal_register > h3{
+  margin-bottom: 40px;
+}
+
+.modal_register p{
+  display: inline-block;
+  align-items: center;
+  width: 100px;
+}
+
+.modal_register .description{
+  height: 100px;
+}
+
+.modal_register > form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  width: auto;
+}
+
+.modal_register > form > div{
+  margin-bottom: 0.7rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.btn-container{
+  position: relative;
+  margin: 0px auto;
+  padding-top: 15px;
+  text-align: center;
+  color: #333;
+}
+
+.modal_register form input[type=submit]{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center; /* 가로 - 중앙으로 */
+  justify-content: center; /* 세로 - 상단으로 */
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  width: 160px;
+  margin-top: 0;
+  background-color: #219df3;
+  height: 40px;
+  text-align: center;
+  color: white;
+  line-height: 40px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+#color_picker{
+  appearance: none;
+  width: 60px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#color_picker::-webkit-color-swatch{
+  border-radius: 6px;
+  border: none;
+}
+
+#color_picker::-moz-color-swatch{
+  border-radius: 6px;
+  border: none;
+}
+
+.hidden{
+  display: none;
+}
+
+#close {
+	overflow: hidden;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+	padding: 0;
+	width: 2em; height: 2em;
+	border-radius: 50%;
+	background: transparent;
+	color: #1da1f2;
+	font: inherit;
+	text-indent: 100%;
+	cursor: pointer;
+
+}
+
+#close:hover {
+  background: rgba(29, 161, 142, .1)
+}
+
+#close:before, #close:after {
+  position: absolute;
+  top: 15%; left: calc(50% - .0625em);
+  width: .125em; height: 70%;
+  border-radius: .125em;
+  transform: rotate(45deg);
+  background: currentcolor;
+  content: ''
+}
+
+#close:after { transform: rotate(-45deg); }
+
+#back{
+  position: absolute;
+  top: 27px;
+  left: 27px;
+  width: 19px;
+  height: 17.25px;
+  cursor: pointer;
+}
+
+/* modal end ------ */
+
+/* 달력 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  
+  --start: 15%;
+    
+  height: 100px;
+
+  position: relative;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+/* 좌우 버튼 */
+.btn {
+ display: block;
+ width: 20px;
+ height: 20px;
+ border: 3px solid #000;
+ border-width: 3px 3px 0 0;
+ cursor: pointer;
+}
+
+.prevDay {
+  transform: rotate(-135deg);
+}
+
+.nextDay {
+  transform: rotate(45deg);
+}
+
+.dateHead div {
+    background: #217af4;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: .6rem;
+}
+  
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5px;
+}
+
+.grid > div {
+  font-size: .9rem;
+}
+
+.dateBoard > div {
+  font-weight: bold;
+  min-height: 6rem;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.noColor {
+  background: #eee;
+}
+
+.date{
+  color: #222;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.date > P{
+  padding: .6rem 0 .2rem .8rem;
+}
+
+.date:hover{
+  background-color: #C6E6F9;
+}
+
+.today > p{
+  color: #217af4;
+}
+
+/* 달력에 일정 마크 */
+.mark_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.calender_mark{
+  font-size: xx-small;
+  font-weight: 500;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  /* background-color: #217af4; */
+  color: white;
+  border-radius: 2px;
+  margin-bottom: 1px;
+}
+
+.more_icon{
+  height: 11px;
+  margin: 0 auto;
+  margin-top: 3px;
+  display: block;
+}
+/* ---------------- */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+.rap {
+  width: 70%;
+  padding: 0 1.4rem;
+  margin-top: 1.4rem;
+  max-width: 900px;
+  position: absolute;
+  top: 100px;
+  left: auto;
+}
+
+.rap.right{
+  animation: calender_right 0.5s ease-out;
+}
+
+.rap.left{
+  animation: calender_left 0.5s ease-out;
+}
+
+@keyframes calender_left {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes calender_right {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.dateHead {
+  margin: .4rem 0;
+}
+
+/* ---- */
+
+footer {
+    width: 100%;
+    height: 110px;
+    bottom: 0px;
+    position: absolute;
+    background-color: #f1f4f7;
+    /* border-top: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+footer > p:first-child{
+    font-size: 15px;
+
+}
+
+footer > p{
+    margin: 2px;
+    margin-left: 25px;
+    font-size: 8px;
+    text-align: center;
+    color: #222222;   
+}
