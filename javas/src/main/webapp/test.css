@@ -1,8 +1,7 @@
-@font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css");
+
+*{
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 html {
@@ -104,7 +103,7 @@ a {
 
 main {
     display: flex;
-    height: auto;
+    height: calc(110vh);
     padding-bottom: 110px;
     background-color: white;
     justify-content: center;
@@ -137,12 +136,16 @@ main {
 
 .photo_album > h2{
     background-color: #217af4;
+    color: white;
 }
 
 .photo_slide{
     width: 100%;
     height: 400px;
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .calender{
@@ -231,7 +234,7 @@ background-color: #C6E6F9;
 }
 
 .today{
-color: red;
+color: #217af4;
 }
 
 /* 달력에 일정 마크 */
@@ -259,7 +262,6 @@ margin-bottom: 1px;
 #this_week{
     display: block;
     background-color: white;
-    width: calc(100% -20px);
     height: calc(30% - 10px);
     border-top: 2px white solid;
     border-radius: 0 0 10px 10px;
@@ -267,7 +269,48 @@ margin-bottom: 1px;
 
 #this_week > h5{
     margin: 5px;
+    margin-bottom: 10px;
 }
+
+.empty_list{
+    color: 	#818181;
+    font-size: 16px;
+    margin-left: 30px;
+    margin-top: 25px;
+    display: inline-block;
+}
+
+.activity_summary{
+    margin-left: 15px;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.activity_summary > div:nth-child(3){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 150px;
+}
+
+.activity_summary > div{
+    margin-left: 10px;
+}
+
+.activity_summary > div:first-child{
+    margin-left: 2px;
+}
+
+/* .activity{
+    height: calc(100% - 16px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+} */
 
 footer {
     width: 100%;
@@ -295,39 +338,156 @@ footer > p{
     color: #222222;   
 }
 
-.myInfoBox {
-	width: 800px;
-    height: 1200px;
-    margin: 5px;
-    color: black;
-    font-size: 22px;
-    text-align: center;
-    position: relative;
-    background-color: pink;
-}
 
-.player-content {
+
+#wrapper{
+    width:450px;
+    
+    height:400px;
+    position:relative;
+    color:#fff;
+    text-shadow:rgba(0,0,0,0.1) 2px 2px 0px;  
+  }
+  
+  #slider-wrap{
+    width:450px;
+    height:400px;
+    position:relative;
+    overflow:hidden;
+    
+  }
+  
+  #slider-wrap ul#slider{
+    width:100%;
+    height:100%;
+    padding: 0px;
+    margin: 0px;
+    position:absolute;
+    top:0;
+    left:0;   
+  }
+  
+  #slider-wrap ul#slider li{
+    float:left;
+    position:relative;
+    width:450px;
+    height:400px; 
+  }
+  
+  #slider-wrap ul#slider li > div{
+    position:absolute;
+    
+  }
+  
+  #slider img{
+    height: 400px;
+    width: 450;
+  }
+  
+  #slider-wrap ul#slider li img{
+    display:block;
+    width:100%;
+    height: 100%;
+  }
+  
+  
+  /*btns*/
+  .btns{
+    position:absolute;
+    width:50px;
+    height:60px;
+    top:50%;
+    margin-top:-25px;
+    line-height:57px;
+    text-align:center;
+    cursor:pointer; 
+    background:rgba(0,0,0,0.1);
+    z-index:100;
     display: flex;
-    flex-direction: column;
-    width: 820px;
-    padding: 10px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    margin:5px;
-    background-color:SEASHELL;
-    align-items: center;
     justify-content: center;
-    font-family: 'LINESeedKR-Bd';
-}
+    align-items: center;
+    
+    -webkit-user-select: none;  
+    -moz-user-select: none; 
+    -khtml-user-select: none; 
+    -ms-user-select: none;
+    
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+  }
+  .btns img{
+    height: 20px;
+    
+  }
+  .btns:hover{
+    background:rgba(0,0,0,0.3); 
+  }
+  
+  #next{right:-50px; border-radius:7px 0px 0px 7px;}
+  #previous{left:-50px; border-radius:0px 7px 7px 7px;}
 
-.first-profil {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.player-name {
-	font-size: 35px;
-    margin-bottom: 5px;
-}
+  
+  #slider-wrap.active #next{right:0px;}
+  #slider-wrap.active #previous{left:0px;}
+  
+  
+  /*bar*/
+  #pagination-wrap{
+    min-width:20px;
+    margin-top:350px;
+    margin-left: auto; 
+    margin-right: auto;
+    height:15px;
+    position:relative;
+    text-align:center;
+  }
+  
+  #pagination-wrap ul {
+    width:100%;
+  }
+  
+  #pagination-wrap ul li{
+    margin: 0 4px;
+    display: inline-block;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#fff;
+    opacity:0.5;
+    position:relative;
+    top:0;
+    
+    
+  }
+  
+  #pagination-wrap ul li.active{
+    width:12px;
+    height:12px;
+    top:3px;
+    opacity:1;
+    box-shadow:rgba(0,0,0,0.1) 1px 1px 0px; 
+  }
+  
+  
+  
+  
+  /*Header*/
+  *{margin:0; padding:0; list-style:none;}
+  a{text-decoration:none; color:#666;}
+  a:hover{color:#1bc1a3;}
+  body, hmtl{background: #ecf0f1; font-family: 'Anton', sans-serif;}
+  
+  
+  
+  
+  /*ANIMATION*/
+  #slider-wrap ul, #pagination-wrap ul li{
+    -webkit-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+    -moz-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+    -o-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+    -ms-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+    transition: all 0.3s cubic-bezier(1,.01,.32,1); 
+  }

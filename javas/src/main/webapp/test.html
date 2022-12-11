@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>main</title>
+    <link rel="stylesheet" href="test.css" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div class="animation"></div>
+      <nav class="navbar">
+        <div class="navbar_logo">
+          <img src="image/javas_logo.svg" onclick="location.href='main.jsp'" />
+        </div>
+        <ul class="navbar_menu">
+          <li><a href="intro.jsp">자바쓰 소개</a></li>
+          <li><a href="calender.jsp">스케줄</a></li>
+          <li><a href="ranking.jsp">랭킹</a></li>
+        </ul>
+        <ul class="navbar_sign">
+          <li><a href="LoginSignup.jsp">로그인/회원가입</a></li>
+        </ul>
+      </nav>
+      <main>
+        <div class="container">
+          <div class="photo_album">
+            <h2>사진첩</h2>
+            <div class="photo_slide">
+              <div id="wrapper">
+                <div id="slider-wrap">
+                  <ul id="slider">
+                    <li>
+                      <img src="image/main_pic5.jpg" />
+                    </li>
+
+                    <li>
+                      <img src="image/main_pic2.jpg" />
+                    </li>
+
+                    <li>
+                      <img src="image/main_pic3.jpg" />
+                    </li>
+
+                    <li>
+                      <img src="image/main_pic4.jpg" />
+                    </li>
+
+                    <li>
+                      <img src="image/main_pic1.jpg" />
+                    </li>
+                  </ul>
+
+                  <!--controls-->
+                  <div class="btns" id="next">
+                    <img src="image/arrow_right.png"/>
+                  </div>
+                  <div class="btns" id="previous">
+                    <img src="image/arrow.png"/>
+                  </div>
+
+                  <div id="pagination-wrap">
+                    <ul></ul>
+                  </div>
+                  <!--controls-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="calender"></div>
+        </div>
+      </main>
+      <footer>
+        <p>천일이CU가는중</p>
+        <p>이시우: swlee4796@naver.com</p>
+        <p>강은중: imgoing02@naver.com</p>
+        <p>김천일: qndldhd1@naver.com</p>
+      </footer>
+    </div>
+    <script type="text/javascript" src="test.js"></script>
+  </body>
+</html>
